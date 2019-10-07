@@ -81,16 +81,13 @@
       <h1 class="deal-heading"> SHOPnROAR Hot Deals</h1>
     </div>
     <div class="col-sm-12 item-container ">
-      <ngx-slick style="display:none" class="carousel" #slickModal="slick-modal" [config]="slideConfig3">
-        <div ngxSlickItem *ngFor="let item of Hot_Deals" class="slide">
-          <div class="item-show" >
+      <!-- <ngx-slick style="display:none" class="carousel" #slickModal="slick-modal" [config]="slideConfig3"> -->
+        <!-- ngxSlickItem -->
+        <div *ngFor="let item of Hot_Deals" >
+          
+            <div class="item-show" >
             <a href={{item.SNR_ProductURL}} target="_blank">
-              <!-- <div class="category-name">
-                <a href="#" >{{item.SNR_Brand}}</a>
-                <h2>
-                  {{item.SNR_Title}}
-                </h2>
-              </div> -->
+              
               <div class="item-img">
                 <img  src="{{item.SNR_ImageURL}}" alt="img">
               </div>
@@ -124,20 +121,18 @@
                 <div class="saveperc">
                   <span *ngIf="item.SNR_PriceAfter !== -1 && item.SNR_PriceBefore !== -1 && item.SNR_PriceBefore !== 0" style="color: green">You save {{100 - (item['SNR_PriceAfter']/item['SNR_PriceBefore']*100).toFixed()}}%</span>
                 </div>
-                <!--                      <div style="color: green">You saved {{save}}%</div>-->
-                <!--              <div><a href="#">-->
-                <!--                here put SVG-->
-                <!--              </a></div>-->
+               
               </div >
 
               <div class="item-btns">
                 <button class="btn btn-shop-compare catButton">Shop Now</button>
-                <!--            <button class="btn btn-shop-compare">Compare</button>-->
               </div>
             </a>
-          </div>
+            </div>
         </div>
-      </ngx-slick>
+      <!-- </ngx-slick> -->
+
+      
 
     </div>
   </div>
@@ -155,8 +150,10 @@
       <h1 class="deal-heading"> Electronics</h1>
     </div>
     <div class="col-sm-12 item-container ">
-      <ngx-slick style="display:none" class="carousel" #slickModal="slick-modal" [config]="slideConfig6">
-        <div ngxSlickItem class="item-show slide" *ngFor="let item of HomeElectronics">
+      <!-- <ngx-slick style="display:none" class="carousel" #slickModal="slick-modal" [config]="slideConfig6"> -->
+          <!-- ngxSlickItem -->
+        <div  *ngFor="let item of HomeElectronics">
+          <div class="item-show" >
           <a [routerLink]="['/details']" [queryParams]="{ Model: item.SNR_SKU, Name:item.SNR_Title, ID:item.id  }">
             <div class="item-img">
               <img src={{item.SNR_ImageURL}}  onerror="this.src='../../assets/images/ShopnrRoar PlaceHolder@2x.png'">
@@ -179,8 +176,9 @@
             <a class="Show-button" href={{item.SNR_ProductURL}} target="_blank"><button class="btn btn-shop-compare-cat catButton">Shop Now</button></a>
             <a class="Show-button" [routerLink]="['/details']" [queryParams]="{ Model: item.SNR_SKU, Name:item.SNR_Title, ID:item.id  }"><button class="btn btn-shop-compare-cat catButton">Compare</button></a>
           </div>
+          </div>
         </div>
-      </ngx-slick>
+      <!-- </ngx-slick> -->
 
     </div>
   </div>
@@ -189,32 +187,34 @@
       <h1 class="deal-heading"> Home and Garden</h1>
     </div>
     <div class="col-sm-12 item-container ">
-      <ngx-slick style="display:none" class="carousel" #slickModal="slick-modal" [config]="slideConfig7">
-        <div ngxSlickItem class="item-show slide" *ngFor="let item of HomeGarden">
-          <a [routerLink]="['/details']" [queryParams]="{ Model: item.SNR_SKU, Name:item.SNR_Title, ID:item.id  }">
-            <div class="item-img">
-              <img src={{item.SNR_ImageURL}}  onerror="this.src='../../assets/images/ShopnrRoar PlaceHolder@2x.png'">
-            </div>
-            <div class="category-name">
-              <!--                  <a>{{item.SNR_Brand}}</a>-->
-              <h2>
-                {{item.SNR_Title}}
-              </h2>
-            </div>
-            <div class="Categories-logo">
-              <img _ngcontent-c12=""  src="https://storage.shopnroar.com/MerchantLogos/{{item.SNR_Available.toLowerCase()}}@60.png">
-            </div>
-            <div class="item-price">
-              <div class="price"><a class="discount-price">${{item.SNR_Price}}</a>
+      <!-- <ngx-slick style="display:none" class="carousel" #slickModal="slick-modal" [config]="slideConfig7"> -->
+        <div  *ngFor="let item of HomeGarden">
+            <div class="item-show">
+                <a [routerLink]="['/details']" [queryParams]="{ Model: item.SNR_SKU, Name:item.SNR_Title, ID:item.id  }">
+                  <div class="item-img">
+                    <img src={{item.SNR_ImageURL}}  onerror="this.src='../../assets/images/ShopnrRoar PlaceHolder@2x.png'">
+                  </div>
+                  <div class="category-name">
+                    <!--                  <a>{{item.SNR_Brand}}</a>-->
+                    <h2>
+                      {{item.SNR_Title}}
+                    </h2>
+                  </div>
+                  <div class="Categories-logo">
+                    <img _ngcontent-c12=""  src="https://storage.shopnroar.com/MerchantLogos/{{item.SNR_Available.toLowerCase()}}@60.png">
+                  </div>
+                  <div class="item-price">
+                    <div class="price"><a class="discount-price">${{item.SNR_Price}}</a>
+                    </div>
+                  </div>
+                </a>
+                <div class="item-btns">
+                  <a class="Show-button" href={{item.SNR_ProductURL}} target="_blank"><button class="btn btn-shop-compare-cat catButton">Shop Now</button></a>
+                  <a class="Show-button" [routerLink]="['/details']" [queryParams]="{ Model: item.SNR_SKU, Name:item.SNR_Title, ID:item.id  }"><button class="btn btn-shop-compare-cat catButton">Compare</button></a>
+                </div>
               </div>
-            </div>
-          </a>
-          <div class="item-btns">
-            <a class="Show-button" href={{item.SNR_ProductURL}} target="_blank"><button class="btn btn-shop-compare-cat catButton">Shop Now</button></a>
-            <a class="Show-button" [routerLink]="['/details']" [queryParams]="{ Model: item.SNR_SKU, Name:item.SNR_Title, ID:item.id  }"><button class="btn btn-shop-compare-cat catButton">Compare</button></a>
-          </div>
         </div>
-      </ngx-slick>
+      <!-- </ngx-slick> -->
 
     </div>
   </div>
@@ -223,32 +223,34 @@
       <h1 class="deal-heading"> Business & Industrials</h1>
     </div>
     <div class="col-sm-12 item-container ">
-      <ngx-slick style="display:none" class="carousel" #slickModal="slick-modal" [config]="slideConfig8">
-        <div ngxSlickItem class="item-show slide" *ngFor="let item of HomeApperel">
-          <a [routerLink]="['/details']" [queryParams]="{ Model: item.SNR_SKU, Name:item.SNR_Title, ID:item.id  }">
-            <div class="item-img">
-              <img src={{item.SNR_ImageURL}} onerror="this.src='../../assets/images/ShopnrRoar PlaceHolder@2x.png'"  onerror="this.src='../../assets/images/ShopnrRoar PlaceHolder@2x.png'">
-            </div>
-            <div class="category-name">
-              <!--                  <a>{{item.SNR_Brand}}</a>-->
-              <h2>
-                {{item.SNR_Title}}
-              </h2>
-            </div>
-            <div class="Categories-logo">
-              <img _ngcontent-c12=""  src="https://storage.shopnroar.com/MerchantLogos/{{item.SNR_Available.toLowerCase()}}@60.png">
-            </div>
-            <div class="item-price">
-              <div class="price"><a class="discount-price">${{item.SNR_Price}}</a>
+      <!-- <ngx-slick style="display:none" class="carousel" #slickModal="slick-modal" [config]="slideConfig8"> -->
+        <div class="" *ngFor="let item of HomeApperel">
+            <div class="item-show">
+                <a [routerLink]="['/details']" [queryParams]="{ Model: item.SNR_SKU, Name:item.SNR_Title, ID:item.id  }">
+                  <div class="item-img">
+                    <img src={{item.SNR_ImageURL}} onerror="this.src='../../assets/images/ShopnrRoar PlaceHolder@2x.png'"  onerror="this.src='../../assets/images/ShopnrRoar PlaceHolder@2x.png'">
+                  </div>
+                  <div class="category-name">
+                    <!--                  <a>{{item.SNR_Brand}}</a>-->
+                    <h2>
+                      {{item.SNR_Title}}
+                    </h2>
+                  </div>
+                  <div class="Categories-logo">
+                    <img _ngcontent-c12=""  src="https://storage.shopnroar.com/MerchantLogos/{{item.SNR_Available.toLowerCase()}}@60.png">
+                  </div>
+                  <div class="item-price">
+                    <div class="price"><a class="discount-price">${{item.SNR_Price}}</a>
+                    </div>
+                  </div>
+                </a>
+                <div class="item-btns">
+                  <a class="Show-button" href={{item.SNR_ProductURL}} target="_blank"><button class="btn btn-shop-compare-cat catButton">Shop Now</button></a>
+                  <a class="Show-button" [routerLink]="['/details']" [queryParams]="{ Model: item.SNR_SKU, Name:item.SNR_Title, ID:item.id  }"><button class="btn btn-shop-compare-cat catButton">Compare</button></a>
+                </div>
               </div>
-            </div>
-          </a>
-          <div class="item-btns">
-            <a class="Show-button" href={{item.SNR_ProductURL}} target="_blank"><button class="btn btn-shop-compare-cat catButton">Shop Now</button></a>
-            <a class="Show-button" [routerLink]="['/details']" [queryParams]="{ Model: item.SNR_SKU, Name:item.SNR_Title, ID:item.id  }"><button class="btn btn-shop-compare-cat catButton">Compare</button></a>
-          </div>
         </div>
-      </ngx-slick>
+      <!-- </ngx-slick> -->
 
     </div>
   </div>
@@ -257,8 +259,9 @@
       <h1 class="deal-heading"> Health and Beauty</h1>
     </div>
     <div class="col-sm-12 item-container ">
-      <ngx-slick style="display:none" class="carousel" #slickModal="slick-modal" [config]="slideConfig9">
-        <div ngxSlickItem class="item-show slide" *ngFor="let item of HomeHealth">
+      <!-- <ngx-slick style="display:none" class="carousel" #slickModal="slick-modal" [config]="slideConfig9"> -->
+        <div class="" *ngFor="let item of HomeHealth">
+          <div class="item-show">
           <a [routerLink]="['/details']" [queryParams]="{ Model: item.SNR_SKU, Name:item.SNR_Title, ID:item.id  }">
             <div class="item-img">
               <img src={{item.SNR_ImageURL}}  onerror="this.src='../../assets/images/ShopnrRoar PlaceHolder@2x.png'">
@@ -281,8 +284,9 @@
             <a class="Show-button" href={{item.SNR_ProductURL}} target="_blank"><button class="btn btn-shop-compare-cat catButton">Shop Now</button></a>
             <a class="Show-button" [routerLink]="['/details']" [queryParams]="{ Model: item.SNR_SKU, Name:item.SNR_Title, ID:item.id  }"><button class="btn btn-shop-compare-cat catButton">Compare</button></a>
           </div>
+          </div>
         </div>
-      </ngx-slick>
+      <!-- </ngx-slick> -->
 
     </div>
   </div>

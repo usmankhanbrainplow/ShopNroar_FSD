@@ -602,7 +602,7 @@ cursor: pointer
 }
 .item-img img{
     margin: 0;
-  height: 200px;
+  /* height: 200px; */
   object-fit: contain;
 }
 .discount-price{

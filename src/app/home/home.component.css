@@ -1,6 +1,6 @@
 .item-show {
-  max-width: 285px;
-  min-height: 350px;
+  /* max-width: 285px; */
+  min-height: 350px; 
   max-height: 460px;
   margin:10px 5px;
   border-radius: 5px;
@@ -15,4 +15,19 @@
 }
 .saveperc{
   min-height: 20px;
+}
+.item-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.item-img{
+  max-height: 200px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+.item-img img{
+  max-width: 100%;
+  /* max-height: 100%; */
 }
