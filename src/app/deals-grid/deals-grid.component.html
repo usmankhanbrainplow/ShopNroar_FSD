@@ -1,0 +1,100 @@
+
+<section class="categories_section container-fluid">
+  <div class="row">
+<!--    <div class="col-sm-2 sidebar padding-0">-->
+<!--      <div class="sidebar-cats">-->
+<!--        <h3>Filter by Categories</h3>-->
+<!--        <ul>-->
+<!--          <li *ngFor="let item of Categories">-->
+<!--            <a (click)="CategoryNavigation(item.id, item.Category)">-->
+<!--              <img  class="slidebar-iamge" src="../../assets/images/CatImages/{{item.Category}}.png">-->
+<!--              <span *ngIf="item=='Uncategorized'">Othes</span>-->
+<!--              <span *ngIf="item!='Uncategorized'">{{item.Category}}</span>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--        <div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+
+
+    <!-- ...............Price Range................... -->
+    <div class="col-lg-12 col-sm-10">
+      <div class="search-content" *ngIf="gridview==true && listview==false">
+        <div class="item-show" *ngFor="let item of products.results">
+          <a  href={{item.SNR_ProductURL}} target="_blank">
+            <div class="item-img">
+              <img src={{item.SNR_ImageURL}}>
+            </div>
+            <div class="category-name">
+              <a>{{item.SNR_Brand}}</a>
+              <h2>
+                {{item.SNR_Title}}
+              </h2>
+            </div>
+            <div class="Categories-logo">
+              <img _ngcontent-c12=""  src="https://storage.shopnroar.com/MerchantLogos/{{item.SNR_Available.toLowerCase()}}@60.png">
+            </div>
+            <div class="item-price">
+              <div class="price"><a class="discount-price">${{item.SNR_PriceAfter}}<s>${{item.SNR_PriceBefore}}</s></a>
+              </div>
+<!--              <div><a href="#">-->
+<!--                here put SVG-->
+<!--              </a></div>-->
+            </div>
+            <div class="item-btns">
+              <button class="btn btn-shop-compare-cat catButton">Shop Now</button>
+<!--              <button class="btn btn-shop-compare-cat">Compare</button>-->
+            </div>
+          </a>
+
+        </div>
+      </div>
+      <div class="search-content" *ngIf="gridview==false && listview==true">
+
+        <!-- Start List View -->
+        <div class="list-view" *ngFor="let item of  products.results">
+          <ul class="products-list">
+            <li class="row">
+              <div class="product-list-img col-lg-3 col-md-3col-sm-3 col-xs-12">
+                <a href={{item.SNR_ProductURL}} target="_blank">
+                  <img src={{item.SNR_ImageURL}}></a>
+              </div>
+              <div class="detail-box col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                <div class="info">
+
+                  <a href={{item.SNR_ProductURL}} target="_blank">
+                    <h3>{{item.SNR_Brand}}</h3>
+                    <a [routerLink]="['/details']" [queryParams]="{ Model: item.SNR_SKU, Name:item.SNR_Title, ID:item.id  }">
+                      <img _ngcontent-c12=""  src="https://storage.shopnroar.com/MerchantLogos/{{item.SNR_Available.toLowerCase()}}@60.png">
+                    </a>
+                    <h4>{{item.SNR_Title}}</h4>
+<!--                    <div style="font-size: 25px; color: #cc0000">${{item.SNR_Price}}</div>-->
+                    <div class="item-price">
+                      <div class="price"><a class="discount-price">${{item.SNR_PriceAfter}}<s>${{item.SNR_PriceBefore}}</s></a>
+                      </div>
+                      <!--              <div><a href="#">-->
+                      <!--                here put SVG-->
+                      <!--              </a></div>-->
+                    </div>
+                    <!--                  <p>{{item.SNR_Description}}</p>-->
+                  </a>
+                  <div class="text-left">
+                    <a href={{item.SNR_ProductURL}} target="_blank"><button class="btn btn-shop-compare-cat catButton">Shop Now</button></a>
+
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- End List View -->
+      </div>
+
+    </div>
+    <!-- ---------------Searched Results will Display here---------------------- -->
+  </div>
+</section>

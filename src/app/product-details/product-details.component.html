@@ -1,0 +1,514 @@
+  <div class="text-center">
+    <img *ngIf="errorflag==true" src="../../assets/images/no-record-found.gif" alt="No Record">
+    <div style="margin-top: 2%;margin-right: 150px;">
+      <h4 *ngIf="errorflag==true" class="sidebar-title font-additional font-weight-bold text-uppercase customColor ">Possible reasons can be:</h4>
+      <p *ngIf="errorflag==true" style="line-height: 20px;"> *) Make sure you accessing correct page
+        <a [routerLink]="['/contact']">feedback</a>
+      </p>
+    </div>
+  </div>
+  <div class="sp-body" style="margin-top: 100px" *ngIf="errorflag ==false">
+    <section id="productDetails" class="product-details" style="padding-top: 0 !important;">
+      <div class="container-fluid">
+        <div class="row">
+          <article class="demo-area">
+          <div class="product-gallery col-lg-4 col-md-4 col-sm-7 col-xs-12 clearfix" style="padding: 0px">
+            <div class="product-slider">
+              <div id="thumbcarousel" class="carousel slide" data-interval="false" style="width: 25%">
+                <div class="carousel-inner">
+                  <div class="item active">
+                    <ng-container *ngIf="images_pro.length == 1">
+                      <div data-target="#carousel" data-slide-to="0" class="thumb"> <img src="{{images_pro[0]}}" (click)="zoomingFunc(0)"  onerror="this.src='../../assets/images/ShopnrRoar PlaceHolder@2x.png'"></div>
+                    </ng-container>
+                    <ng-container *ngIf="images_pro.length == 2">
+                      <div data-target="#carousel" data-slide-to="0" class="thumb"> <img src="{{images_pro[0]}}" (click)="zoomingFunc(0)"  onerror="this.src='../../assets/images/ShopnrRoar PlaceHolder@2x.png'"></div>
+                      <div data-target="#carousel" data-slide-to="1" class="thumb"> <img src="{{images_pro[1]}}" (click)="zoomingFunc(1)"  onerror="this.src='../../assets/images/ShopnrRoar PlaceHolder@2x.png'"> </div>
+                    </ng-container>
+                    <ng-container *ngIf="images_pro.length == 3">
+                      <div data-target="#carousel" data-slide-to="0" class="thumb"> <img src="{{images_pro[0]}}" (click)="zoomingFunc(0)"  onerror="this.src='../../assets/images/ShopnrRoar PlaceHolder@2x.png'"></div>
+                      <div data-target="#carousel" data-slide-to="1" class="thumb"> <img src="{{images_pro[1]}}" (click)="zoomingFunc(1)"  onerror="this.src='../../assets/images/ShopnrRoar PlaceHolder@2x.png'"> </div>
+                      <div data-target="#carousel" data-slide-to="2" class="thumb"> <img src="{{images_pro[2]}}" (click)="zoomingFunc(2)"  onerror="this.src='../../assets/images/ShopnrRoar PlaceHolder@2x.png'"> </div>
+                    </ng-container>
+                    <ng-container *ngIf="images_pro.length == 4 || images_pro.length > 4">
+                      <div data-target="#carousel" data-slide-to="0" class="thumb"> <img src="{{images_pro[0]}}" (click)="zoomingFunc(0)"  onerror="this.src='../../assets/images/ShopnrRoar PlaceHolder@2x.png'"></div>
+                      <div data-target="#carousel" data-slide-to="1" class="thumb"> <img src="{{images_pro[1]}}" (click)="zoomingFunc(1)"  onerror="this.src='../../assets/images/ShopnrRoar PlaceHolder@2x.png'"> </div>
+                      <div data-target="#carousel" data-slide-to="2" class="thumb"> <img src="{{images_pro[2]}}" (click)="zoomingFunc(2)"  onerror="this.src='../../assets/images/ShopnrRoar PlaceHolder@2x.png'"> </div>
+                      <div data-target="#carousel" data-slide-to="3" class="thumb"> <img src="{{images_pro[3]}}"(click)="zoomingFunc(3)"   onerror="this.src='../../assets/images/ShopnrRoar PlaceHolder@2x.png'"> </div>
+                    </ng-container>
+<!--                    <ng-container *ngIf="images_pro.length == 5 || images_pro.length > 5">-->
+<!--                      <div data-target="#carousel" data-slide-to="0" class="thumb"> <img src="{{images_pro[0]}}" (click)="zoomingFunc(0)"  onerror="this.src='../../assets/images/ShopnrRoar PlaceHolder@2x.png'"></div>-->
+<!--                      <div data-target="#carousel" data-slide-to="1" class="thumb"> <img src="{{images_pro[1]}}" (click)="zoomingFunc(1)"  onerror="this.src='../../assets/images/ShopnrRoar PlaceHolder@2x.png'"> </div>-->
+<!--                      <div data-target="#carousel" data-slide-to="2" class="thumb"> <img src="{{images_pro[2]}}" (click)="zoomingFunc(2)"  onerror="this.src='../../assets/images/ShopnrRoar PlaceHolder@2x.png'"> </div>-->
+<!--                      <div data-target="#carousel" data-slide-to="3" class="thumb"> <img src="{{images_pro[3]}}"(click)="zoomingFunc(3)"   onerror="this.src='../../assets/images/ShopnrRoar PlaceHolder@2x.png'"> </div>-->
+<!--                      <div data-target="#carousel" data-slide-to="4" class="thumb"> <img src="{{images_pro[4]}}" (click)="zoomingFunc(4)"  onerror="this.src='../../assets/images/ShopnrRoar PlaceHolder@2x.png'"></div>-->
+<!--                    </ng-container>-->
+
+                  </div>
+                </div>
+              </div>
+              <div id="carousel" class="carousel" data-interval="false" style="width: 65%">
+                <div class="carousel-inner"a>
+<!--                  <div style="animation-duration: 1s;"  class="Thumbnail active"> <img class="responsive demo-trigger0" style="position: initial" [src]="images_pro[0]" [imageZoom]="images_pro[0]" lensWidth="700" lensHeight="450"> </div>-->
+<!--                  <div style="animation-duration: 1s;"  class="Thumbnail"> <img class="responsive demo-trigger1" [src]="images_pro[1]" [imageZoom]="images_pro[1]" lensWidth="700" lensHeight="450"> </div>-->
+<!--                  <div style="animation-duration: 1s;"  class="Thumbnail"> <img class="responsive demo-trigger2" [src]="images_pro[2]" [imageZoom]="images_pro[2]" lensWidth="700" lensHeight="450"> </div>-->
+<!--                  <div style="animation-duration: 1s;"  class="Thumbnail"> <img class="responsive demo-trigger3" [src]="images_pro[3]" [imageZoom]="images_pro[3]" lensWidth="700" lensHeight="450"> </div>-->
+
+                  <div style="animation-duration: 1s;" class=" item active"> <img class="responsive demo-trigger0" [src]="images_pro[0]" [imageZoom]="images_pro[0]"  lensWidth="700" lensHeight="450" data-zoom="https://demos.imgix.net/wristwatch.jpg?w=1000&ch=DPR&dpr=2"  onerror="this.src='../../assets/images/ShopnrRoar PlaceHolder@2x.png'"> </div>
+                  <div style="animation-duration: 1s;" class=" item">        <img class="responsive demo-trigger1" [src]="images_pro[1]" [imageZoom]="images_pro[1]"  lensWidth="700" lensHeight="450"data-zoom="https://demos.imgix.net/wristwatch.jpg?w=1000&ch=DPR&dpr=2"  onerror="this.src='../../assets/images/ShopnrRoar PlaceHolder@2x.png'"> </div>
+                  <div style="animation-duration: 1s;" class=" item">        <img class="responsive demo-trigger2" [src]="images_pro[2]" [imageZoom]="images_pro[2]"  lensWidth="700" lensHeight="450"data-zoom="https://demos.imgix.net/wristwatch.jpg?w=1000&ch=DPR&dpr=2"  onerror="this.src='../../assets/images/ShopnrRoar PlaceHolder@2x.png'"> </div>
+                  <div style="animation-duration: 1s;" class=" item">        <img class="responsive demo-trigger3" [src]="images_pro[3]" [imageZoom]="images_pro[3]"  lensWidth="700" lensHeight="450"data-zoom="https://demos.imgix.net/wristwatch.jpg?w=1000&ch=DPR&dpr=2"  onerror="this.src='../../assets/images/ShopnrRoar PlaceHolder@2x.png'"> </div>
+<!--                  <div style="animation-duration: 1s;" class=" item">        <img class="responsive demo-trigger4" [src]="images_pro[4]" [imageZoom]="images_pro[4]"  lensWidth="700" lensHeight="450"data-zoom="https://demos.imgix.net/wristwatch.jpg?w=1000&ch=DPR&dpr=2"  onerror="this.src='../../assets/images/ShopnrRoar PlaceHolder@2x.png'"> </div>-->
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-cart pull-left col-lg-8 col-md-8 col-sm-12 col-xs-12 clearfix" style="padding: 0px;;">
+            <div class="pull-left detail col-lg-9 col-md-8 col-sm-12 col-xs-12" style="min-height:345px">
+              <div class="product-options_header clearfix margin-l">
+                <h3 class="font-additional font-weight-bold text-uppercase" style="font-size:25px; color: #000000; font-weight: 600">{{title}}</h3>
+               </div>
+              <ng-container *ngIf="productPrice!==0.00">
+                <div class="product-options_body clearfix margin-l" style="padding: 0px!important;">
+                  <h4 *ngIf="productPrice" class="font-additional font-weight-bold " style="font-size: 20px;"><span style="color: #cc0000;font-size: 17px!important;">${{productPrice}}</span></h4>
+                </div>
+              </ng-container>
+              <div class="item-btns" style="display: contents!important;">
+                <a href="{{productLink}}" target="_blank"><button class="btn btn-shop-compare-cat catButton" style="margin-left: 20px">Shop Now</button></a>
+              </div>
+              <ng-container *ngIf="description!=='Visit site to see description'">
+                <div class="product-options_body clearfix margin-l">
+<!--                  <h4 *ngIf="description.length>0" class="font-additional font-weight-bold " style="font-size: 20px;">Product Description</h4>-->
+                  <div class="product-options_desc font-main color-third">
+                    <div [innerHTML]="description" class="descriptionstyle"></div>
+                  </div>
+                </div>
+              </ng-container>
+<!--              <ng-container *ngIf="priceofproduct!==0.00">-->
+<!--                <div class="product-options_body clearfix margin-l">-->
+<!--                  &lt;!&ndash;<h4 *ngIf="priceofproduct" class="font-additional font-weight-bold " style="font-size: 25px;">Price</h4>&ndash;&gt;-->
+<!--                  <div class="product-options_desc font-main color-third">-->
+<!--                    <img src="https://storage.shopnroar.com/MerchantLogos/{{merchant.toLowerCase()}}@60.png" style="margin: 0">-->
+<!--                    &lt;!&ndash;<label>{{merchant.toLowerCase()}}</label>&ndash;&gt;-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </ng-container>-->
+
+            </div>
+            <div class="pull-left col-lg-3 col-md-4 col-sm-12 col-xs-12" style="margin-top: 20px">
+              <div *ngIf="overallrating>=50" style="text-align: center;">
+                <div class="clearfix"></div>
+                <span style="font-size: 20px;" class="reviews--aspect--text"><span style="color: #cc0000; font-weight: bold">{{merchantName}}</span> Rating Score</span>
+                <round-progress
+                  [current]="newoverallratting1"
+                  [max]="max"
+                  [color]="'#53c722'"
+                  [background]="'#eaeaea'"
+                  [radius]="100"
+                  [stroke]="20"
+                  [semicircle]="false"
+                  [rounded]="false"
+                  [clockwise]="true"
+                  [responsive]="false"
+                  [duration]="800"
+                  [animation]="'easeInOutQuart'"
+                  [animationDelay]="5"
+                  style="margin:0 auto; max-width:75px; ">
+                </round-progress>
+                <div style="position: relative; bottom: 178px;font-size:20px;">{{newoverallratting1}}%</div>
+                <div class="clearfix"></div>
+                <div class="row" style="margin-top:-145px;">
+                  <span style="font-size: 20px">4.1</span>
+                  <span class="fa fa-star checked" style="margin-left: 5px;font-size: 20px;" ></span>
+                  <span class="fa fa-star checked" style=" font-size: 20px;"></span>
+                  <span class="fa fa-star checked" style=" font-size: 20px;"></span>
+                  <span class="fa fa-star checked" style=" font-size: 20px;"></span>
+                  <span class="fa fa-star" style="font-size: 20px; color: #cecdcb;margin-bottom: 15px;"></span>
+                </div>
+              </div>
+              <ng-container *ngIf="WishCheck == false">
+                <div class="Watchlist-div" *ngIf="sgflag.login!=false">
+                  <a class="watch-button" (click)="AddtoWatchList(proId)"><i class="fa fa-eye"></i> Watch</a>
+                </div>
+              </ng-container>
+              <ng-container *ngIf="WishCheck == true">
+                <div class="Watchlist-div" *ngIf="sgflag.login!=false">
+                  <a class="watch-button" (click)="RemoveFromWatchList()"><i class="fa fa-eye-slash"></i>Unwatch</a>
+                </div>
+              </ng-container>
+              <h3 class="Share-Heading" style="padding: 0 0 0 30px"><i class="fa fa-share"></i> Share</h3>
+              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <ul class="product-links" style="display: flex; margin-top: 0!important; width:150%">
+                  <li style=" margin-top: 0px!important;">
+                    <a class="font-additional font-weight-normal hover-focus-color" [routerLink]="['/zoom']" data-toggle="tooltip" title="Pinterest" style="padding-top: 5px!important;">
+                      <img src="../../assets/images/pintrest.png" alt="No Record">
+                    </a>
+                  </li>
+                  <li [attr.data-href]="fbsharelink" style=" margin-top: 0px!important;">
+                    <a target="_blank" [attr.href]="'https://www.facebook.com/sharer/sharer.php?u='+fbsharelink+';src=sdkpreparse'" data-toggle="tooltip" title="facebook" style="padding-top: 5px!important;">
+                      <img src="../../assets/images/facebook.png" alt="No Record">
+                    </a>
+                  </li>
+<!--                  <li style=" margin-top: 0px!important;">-->
+<!--                    <a class="font-additional font-weight-normal hover-focus-color" href="#" data-toggle="tooltip" title="instagram" style="padding-top: 5px!important;">-->
+<!--                      <img src="../../assets/images/Instagram.png" alt="No Record">-->
+<!--                    </a>-->
+<!--                  </li>-->
+                  <li style=" margin-top: 0px!important;">
+                    <a class="font-additional font-weight-normal hover-focus-color" href="#" data-toggle="tooltip" title="twitter" style="padding-top: 5px!important;">
+                      <img src="../../assets/images/twitter.png" alt="No Record">
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          </article>
+          <div class="col-lg-12">
+            <div class="product-options_cart clearfix">
+              <div class="product-options_row">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <h4 class="font-additional font-weight-bold text-uppercase" style="text-transform: capitalize;font-size: 25px;margin-top: 12px;padding-bottom: 0px; color: #000000!important;">Product availability on different stores</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="">
+              <div class="select pull-left" style="margin-left: 78%;"></div>
+              <br>
+              <table class="table compare-table layout" style="border: 1px solid #ccc;">
+                <tbody>
+                <tr class="product-row">
+                  <td class="table-heading" style="width:35%"><b>Title</b></td>
+                  <td class="table-heading" style="width:15%"><b>Store</b></td>
+                  <!--<td class="table-heading" style="width:15%"><b>AI Score</b></td>-->
+                  <td class="table-heading" style="width:15%"><b>Rating</b></td>
+                  <td class="table-heading" style="width:15%"><b>Price</b></td>
+                  <td class="table-heading" style="width:20%"><b>Shopping Link</b></td>
+                </tr>
+                <tr *ngFor="let item of Allproductsresults" class="product-row">
+                  <ng-container *ngIf="item.SNR_Price > price-priceprcent">
+                    <td>
+                      <div>
+                        <p class="Title-product limit-description">{{item.SNR_Title}}</p>
+                      </div>
+                    </td>
+                    <td class="logo-td">
+                      <img src="https://storage.shopnroar.com/MerchantLogos/{{item.SNR_Available.toLowerCase()}}@60.png">
+                      {{setImag(item.SNR_ImageURL)}}
+                    </td>
+                    <!--<td >-->
+                      <!--<div>-->
+                        <!--<div *ngIf="overallrating>=50" style="text-align: center;">-->
+                          <!--<div class="clearfix"></div>-->
+                          <!--&lt;!&ndash;<span style="font-size: 20px; font-weight: bold;" class="reviews&#45;&#45;aspect&#45;&#45;text">SHOPnROAR Product Score</span>&ndash;&gt;-->
+                          <!--<round-progress-->
+                            <!--[current]="overallrating"-->
+                            <!--[max]="max"-->
+                            <!--[color]="'#53c722'"-->
+                            <!--[background]="'#eaeaea'"-->
+                            <!--[radius]="100"-->
+                            <!--[stroke]="20"-->
+                            <!--[semicircle]="false"-->
+                            <!--[rounded]="false"-->
+                            <!--[clockwise]="true"-->
+                            <!--[responsive]="false"-->
+                            <!--[duration]="800"-->
+                            <!--[animation]="'easeInOutQuart'"-->
+                            <!--[animationDelay]="5"-->
+                            <!--style="margin:0 auto; max-width:50px; max-height: 50px ">-->
+                          <!--</round-progress>-->
+                          <!--<div style="position: relative; bottom: 35px;font-size:12px;">{{overallrating}} %</div>-->
+                          <!--<div class="clearfix"></div>-->
+                      <!--</div>-->
+                      <!--</div>-->
+                    <!--</td>-->
+                    <td class="">
+                      <div class="col-sm-push-8 star-dispaly">
+                        <br>
+                        <div *ngIf="item.SNR_CustomerReviews==0.000 ">
+                          <ul class="rating star-rateing" style="">
+                            <li class="star-size"><span aria-hidden="true"
+                                                        class="icon-star customColor"></span>
+                            </li>
+                            <li class="star-size"><span aria-hidden="true"
+                                                        class="icon-star customColor"></span>
+                            </li>
+                            <li class="star-size"><span aria-hidden="true"
+                                                        class="icon-star customColor"></span>
+                            </li>
+                            <li class="star-size"><span aria-hidden="true"
+                                                        class="icon-star customColor"></span>
+                            </li>
+                            <li class="star-size"><span aria-hidden="true"
+                                                        class="icon-star customColor"></span>
+                            </li>
+                          </ul>
+                          <br><br>
+                        </div>
+                        <ul class="rating">
+                          <li *ngIf="item.SNR_CustomerReviews >=1 "><span aria-hidden="true"
+                                                                          class="icon-star customColor"></span></li>
+                          <li *ngIf="item.SNR_CustomerReviews >=2 "><span aria-hidden="true"
+                                                                          class="icon-star customColor"></span></li>
+                          <li *ngIf="item.SNR_CustomerReviews >=3 "><span aria-hidden="true"
+                                                                          class="icon-star customColor"></span></li>
+                          <li *ngIf="item.SNR_CustomerReviews >=4 "><span aria-hidden="true"
+                                                                          class="icon-star customColor"></span></li>
+                          <li *ngIf="item.SNR_CustomerReviews >=4.5 "><span aria-hidden="true"
+                                                                            class="icon-star customColor"></span></li>
+                        </ul>
+                      </div>
+                    </td>
+                    <td class="price-td">
+                      <div *ngIf="item.SNR_Price==0.000"
+                           class="product-item_price font-additional font-weight-normal customColor">visit site to see
+                        price<br><br>
+                      </div>
+                      <div *ngIf="item.SNR_Price!=0.000 "
+                           class="price-box product-item_price font-additional font-weight-normal customColor">
+                        {{item.SNR_Price | ceilingPrice | currency}}<br><br>
+                      </div>
+                    </td>
+                    <td class="unit-price-col" style="text-align: center; padding: 0px;">
+                      <div class="item-btns">
+                      <a href="{{item.SNR_ProductURL}}" target="_blank"><button class="btn btn-shop-compare-cat catButton">Shop Now</button></a>
+                    </div>
+                    </td>
+                  </ng-container>
+                </tr>
+                </tbody>
+              </table>
+              <h2 *ngIf="msgflag!=false" class="font-additional font-weight-bold text-uppercase">No more such
+                products</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="row" style="margin-left: 20px">
+      <h4 style="margin-left: 25px; color: black; font-size: 25px">SHOPnROAR AI Score</h4>
+      <div style=" border-bottom: 1px solid #e6e6e6;margin-left: 25px">
+        <span style="font-size: 45px">4.1</span>
+        <span class="fa fa-star checked" style="margin-left: 20px;font-size: 30px;" ></span>
+      <span class="fa fa-star checked" style=" font-size: 30px;"></span>
+      <span class="fa fa-star checked" style=" font-size: 30px;"></span>
+      <span class="fa fa-star checked" style=" font-size: 30px;"></span>
+      <span class="fa fa-star" style="font-size: 30px; color: #cecdcb;margin-bottom: 15px;"></span>
+      </div>
+    </div>
+<div class="row" style="margin-top: 30px">
+  <div class="col-lg-4 col-md-4">
+    <div *ngIf="mini<=90" style="text-align: center;">
+      <div class="clearfix"></div>
+      <round-progress class="aaaaaaaaaaaaaa"
+        [current]="mini"
+        [max]="max"
+        [color]="'#53c722'"
+        [background]="'#eaeaea'"
+        [radius]="100"
+        [stroke]="20"
+        [semicircle]="false"
+        [rounded]="false"
+        [clockwise]="true"
+        [responsive]="false"
+        [duration]="800"
+        [animation]="'easeInOutQuart'"
+        [animationDelay]="5"
+        style="margin:0 auto; max-width:130px; height: 130px!important; ">
+      </round-progress>
+      <div style="position: relative; bottom: 80px;font-size:25px;">{{mini}}%</div>
+      <span style="font-size: 17px">Recommended By</span>
+<!--      <div class="clearfix"></div>-->
+
+<!--      <div class="row" style="margin-top:-145px;">-->
+<!--        <div class="width-auto">-->
+<!--          <ul class="rating">-->
+<!--            <li *ngFor=" let i of [1,2,3,4,5]">-->
+<!--              <span *ngIf="i<=overallStarrating && overallStarrating!=0"class="icon-star customColor"aria-hidden="true"></span>-->
+<!--              <span *ngIf="i>overallStarrating && overallStarrating!=0" class="icon-star customColor"></span>-->
+<!--            </li>-->
+<!--          </ul>-->
+<!--        </div>-->
+<!--      </div>-->
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-4">
+    <div *ngIf="mini2<=95" style="text-align: center;">
+      <div class="clearfix"></div>
+      <round-progress class="aaaaaaaaaaaaaa"
+        [current]="mini2"
+        [max]="max"
+        [color]="'#53c722'"
+        [background]="'#eaeaea'"
+        [radius]="100"
+        [stroke]="20"
+        [semicircle]="false"
+        [rounded]="false"
+        [clockwise]="true"
+        [responsive]="false"
+        [duration]="800"
+        [animation]="'easeInOutQuart'"
+        [animationDelay]="5"
+        style="margin:0 auto; max-width:130px;height: 130px!important; ">
+      </round-progress>
+      <div style="position: relative; bottom: 80px;font-size:25px;">{{mini2}}%</div>
+      <span style="font-size: 17px" class="reviews--aspect--text">Value for Money</span>
+<!--      <div class="row" style="margin-top:-145px;">-->
+<!--        <div class="width-auto">-->
+<!--          <ul class="rating">-->
+<!--            <li *ngFor=" let i of [1,2,3,4,5]">-->
+<!--              <span *ngIf="i<=overallStarrating && overallStarrating!=0"class="icon-star customColor"aria-hidden="true"></span>-->
+<!--              <span *ngIf="i>overallStarrating && overallStarrating!=0" class="icon-star customColor"></span>-->
+<!--            </li>-->
+<!--          </ul>-->
+<!--        </div>-->
+<!--      </div>-->
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-4">
+    <div *ngIf="mini3<=95" style="text-align: center;">
+      <div class="clearfix"></div>
+      <round-progress class="aaaaaaaaaaaaaa"
+        [current]="mini3"
+        [max]="max"
+        [color]="'#53c722'"
+        [background]="'#eaeaea'"
+        [radius]="100"
+        [stroke]="20"
+        [semicircle]="false"
+        [rounded]="false"
+        [clockwise]="true"
+        [responsive]="false"
+        [duration]="800"
+        [animation]="'easeInOutQuart'"
+        [animationDelay]="5"
+        style="margin:0 auto; max-width:130px; height: 130px!important;">
+      </round-progress>
+      <div style="position: relative; bottom: 80px;font-size:25px;">{{mini3}}%</div>
+      <span style="font-size: 17px" class="reviews--aspect--text">Quality Build</span>
+<!--      <div class="row" style="margin-top:-145px;">-->
+<!--        <div class="width-auto">-->
+<!--          <ul class="rating">-->
+<!--            <li *ngFor=" let i of [1,2,3,4,5]">-->
+<!--              <span *ngIf="i<=overallStarrating && overallStarrating!=0"class="icon-star customColor"aria-hidden="true"></span>-->
+<!--              <span *ngIf="i>overallStarrating && overallStarrating!=0" class="icon-star customColor"></span>-->
+<!--            </li>-->
+<!--          </ul>-->
+<!--        </div>-->
+<!--      </div>-->
+    </div>
+  </div>
+</div>
+<!--    <section id="tabsPanel" class="tabs-container background-container">-->
+<!--      <div ng-bind-html-unsafe="so"></div>-->
+<!--      <div class="container-fluid">-->
+<!--        <div class="tabs-panel" role="tabpanel" >-->
+<!--          <div class="tab-content "  >-->
+<!--            <div *ngIf="Reviewflag!==false">-->
+<!--              <h4 style="margin-left: 20px">Customer Reviews</h4>-->
+<!--              <div *ngFor="let item of Reviews.results" class="product-review">-->
+<!--                <div *ngFor="let rev of item.Reviews">-->
+<!--                  <div class="review-content">-->
+<!--                    <h3>{{rev.SNR_Review_Title}}</h3>-->
+<!--                    <div class="media-info">-->
+<!--                      <ul class="rating">-->
+<!--                        <li *ngFor=" let i of [1,2,3,4,5]">-->
+<!--                            <span *ngIf="i<=rev.SNR_Review_Stars && rev.SNR_Review_Stars!=0" aria-hidden="true" class="icon-star customColor"></span>-->
+<!--                          <span *ngIf="i>rev.SNR_Review_Stars && rev.SNR_Review_Stars!=0" class="icon-star customColor"></span>-->
+<!--                        </li>-->
+<!--                      </ul>-->
+<!--                    </div>&lt;!&ndash; End .media-info &ndash;&gt;-->
+<!--                    <br>-->
+<!--                    <p style="display: -webkit-inline-box">{{rev.SNR_Review_Body}}</p>-->
+<!--                  </div>&lt;!&ndash; End .review-content &ndash;&gt;-->
+<!--                </div>-->
+<!--              </div>&lt;!&ndash; End .product-review &ndash;&gt;-->
+<!--              <div class="col-lg-12" style="text-align: center;">-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div *ngIf="Reviewflag==false">-->
+<!--              <h3 style="font-weight: bold; margin-left: 20px">Customer Reviews</h3>-->
+<!--              <div class="text-center">-->
+<!--                <br>-->
+<!--                <h3 style="font-weight: bold;text-align: center; font-size: 20px">No reviews for this product yet!</h3>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--         <div class="col-lg-12">-->
+<!--                  <span>-->
+<!--                      <h3 style="font-weight: bold;margin-top:0px;margin-bottom: 1%; text-align: left; margin-top: 20px;">Share your thoughts with other customers-->
+
+<!--                      </h3>-->
+<!--                    </span>-->
+<!--           <a (click)="loginredirect()"  *ngIf="sgflag.login==false" class="forget-link" style="font-size: 22px;cursor: pointer;margin-left: 5%"><input type="button" class="btn btn-default" value="Write a customer review"> </a>-->
+<!--           <form novalidate="" style="width: 900px;"  *ngIf="sgflag.login!=false" class="ng-dirty ng-touched ng-invalid">-->
+<!--             <div class="row">-->
+<!--               <div class="col-md-8">-->
+<!--                 <div class="form-group textarea-group label-overlay">-->
+<!--                   <input class="form-control ng-valid ng-dirty ng-touched" name="title" required [(ngModel)]="model.title" placeholder="Title" type="text">-->
+<!--                 </div>-->
+<!--                </div>-->
+<!--               <div class="col-md-4">-->
+<!--                 <fieldset class="rating">-->
+<!--                   <input id="star5" name="rating" type="radio" value="5"><label class="full" for="star5"-->
+<!--                                                                                  title="Awesome - 5 stars" (click)="getValue(5)"></label>-->
+<!--                   <input id="star4half" name="rating" type="radio" value="4 and a half"><label class="half"-->
+<!--                                                                                                 for="star4half"-->
+<!--                                                                                                 title="Pretty good - 4.5 stars"  (click)="getValue(4.5)"></label>-->
+<!--                   <input id="star4" name="rating" type="radio" value="4"><label class="full" for="star4"-->
+<!--                                                                                  title="Pretty good - 4 stars"  (click)="getValue(4)"></label>-->
+<!--                   <input id="star3half" name="rating" type="radio" value="3 and a half"><label class="half"-->
+<!--                                                                                                 for="star3half"-->
+<!--                                                                                                 title="Meh - 3.5 stars"  (click)="getValue(3.5)"></label>-->
+<!--                   <input id="star3" name="rating" type="radio" value="3"><label class="full" for="star3"-->
+<!--                                                                                  title="Meh - 3 stars"  (click)="getValue(3)"></label>-->
+<!--                   <input id="star2half" name="rating" type="radio" value="2 and a half"><label class="half"-->
+<!--                                                                                                 for="star2half"-->
+<!--                                                                                                 title="Kinda bad - 2.5 stars"  (click)="getValue(2.5)"></label>-->
+<!--                   <input id="star2" name="rating" type="radio" value="2"><label class="full" for="star2"-->
+<!--                                                                                  title="Kinda bad - 2 stars"  (click)="getValue(2)"></label>-->
+<!--                    <input id="star1half" name="rating" type="radio" value="1 and a half"><label class="half"-->
+<!--                                                                                                 for="star1half"-->
+<!--                                                                                                 title="Meh - 1.5 stars"  (click)="getValue(1.5)"></label>-->
+<!--                    <input id="star1" name="rating" type="radio" value="1"><label class="full" for="star1"-->
+<!--                                                                                  title="Sucks big time - 1 star"  (click)="getValue(1)"></label>-->
+<!--                    <input id="starhalf" name="rating" type="radio" value="half"><label class="half" for="starhalf"-->
+<!--                                                                                        title="Sucks big time - 0.5 stars"  (click)="getValue(0.5)"></label>-->
+<!--                  </fieldset>-->
+<!--               </div>-->
+<!--             </div>-->
+<!--             <div class="row">-->
+<!--               <div class="col-md-12">-->
+<!--                 <div class="form-group textarea-group label-overlay">-->
+<!--                      <textarea class="form-control min-height ng-dirty ng-touched ng-invalid" cols="30" name="review"-->
+<!--                                placeholder="Write your review..." required rows="4" [(ngModel)]="model.review"-->
+<!--                      ></textarea>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--             </div>-->
+<!--              <h3 style="margin-left: 60%;"> {{revimsg}}</h3>-->
+<!--              <button (click)="addreview()"-->
+<!--                      class="btn button-additional font-additional font-weight-normal hvr-rectangle-out hover-focus-bg before-bg"-->
+<!--                      style="font-size: 18px;color:white; float:right;" type="submit">Submit Review-->
+<!--              </button>-->
+<!--            </form>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </section>-->
+    <app-carouselhotdeals></app-carouselhotdeals>
+
+    <!-- -----------------------Recently Searched Items------------------------ -->
+
+<!--    <app-recentlysearch></app-recentlysearch>-->
+
+    <!-- ---------------------SHOPnROAR Recommendations for you--------------------- -->
+
+<!--    <app-recommendations></app-recommendations>-->
+  </div>
+<!--  <ng-container *ngIf="check_data">-->
+<!--    <app-footer></app-footer>-->
+<!--  </ng-container>-->

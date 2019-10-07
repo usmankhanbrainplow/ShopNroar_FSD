@@ -1,0 +1,148 @@
+.Drop-Down:hover{
+  /*color: #ffffff!important;*/
+  /*background: #cc0000;*/
+  color:#ed2424;;
+}
+
+.Drop-Down ul li a:hover{
+
+  color:#FFFFFF;
+  background:#ed2424
+}
+.Drop-Down ul li a{
+  padding: 3px 10px;
+  font-size: 14px;
+
+}
+.Drop-Down ul li a i{
+  font-size: 15px;
+  padding-right: 2px;
+}
+.fa-android{
+  color: #a4c639;
+}
+.top-search-btn{
+  border-radius: 25px;
+  font-size: 24px;
+  padding: 9px 30px;
+  font-weight: bolder;
+  background-color: #000!important;
+  text-align: center;
+  text-transform: capitalize;
+  margin-top: 16px;
+  /* margin-left: 150px; */
+}
+.search-input {
+  width: 140%;
+    padding: 0 0px!important;
+    color: #fff;
+    -webkit-appearance: none;
+    text-align: center;
+    outline: none;
+    background-color: #333!important;
+    border: 2px solid #999;
+    border-radius: 35px;
+    font-size: 50px;
+    height: 80px;
+}
+.search-modal-box{
+  background: rgba(32,32,32,0);
+}
+.cross-div{
+  background-color: transparent;
+  margin-top: 98px;
+}
+.close{
+  width: 35px;
+    height: 35px;
+    border-radius: 43px;
+    background-color: #000000;
+    opacity: 1;
+    box-shadow: none;
+}
+.fa-apple:hover{
+  color: #a3aaae;
+}
+.fa-apple:before{
+  color: #a3aaae;
+}
+.header-img{
+  width: 250px;
+}
+.close:hover{
+  background-color: #c00
+}
+.scrollbar{
+  background: #222;
+    margin-top: 12px;
+}
+.Search-li-anchor{
+  color: #fff;
+  font-size: 13px
+}
+.Search-li-anchor:hover{
+  text-decoration: underline;
+  color: #fff!important
+}
+.Drop-Down{
+cursor: pointer;
+font-size: 18px;
+top: 35px;
+font-weight: 600;
+}
+@media screen and (max-width:1300px){
+  .navbar-brand {
+    padding: 15px 0 5px 40px;
+}
+.Drop-Down{
+  top: 25px;
+
+  }
+}
+@media screen and (max-width:1024px){
+  .header-img {
+    width: 200px;
+}
+.Drop-Down{
+  top: 21px;
+
+  }
+}
+@media screen and (max-width:1200px){
+
+.top-search-btn {
+  font-size: 20px;
+  padding: 6px 20px;
+
+  margin-top: 16px;
+}
+.navbar-nav>li>a {
+  padding: 20px 6px;
+}
+.navbar-brand{
+  padding: 6px
+}
+}
+
+@media screen and (max-width:992px){
+  .top-search-btn {
+    font-size: 17px!important;
+}
+.header-img{
+  width: 172px;
+}
+.top-search-btn[_ngcontent-c1][_ngcontent-c1] {
+  font-size: 20px;
+  padding: 6px 20px;
+  margin-top: 15px;
+}
+.navbar-nav > li > a {
+  padding: 15px 2px;
+}
+.navbar-nav>li>a {
+  font-size: 13px;
+}
+.navbar-brand{
+  padding: 8px
+}
+}

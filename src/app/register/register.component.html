@@ -1,0 +1,182 @@
+<!--<preloader-full></preloader-full>-->
+<br><br>
+<div class="row login-page">
+  <div class="col-lg-4 col-md-3"></div>
+  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 login-wrap">
+    <form class="signup-page" (ngSubmit)="!nameFormControl.hasError('required') &&  !nameFormControl.hasError('pattern') &&  !emailFormControl.hasError('required') &&
+     !emailFormControl.hasError('pattern') && !passwordFormControl.hasError('required') &&
+      !passwordFormControl.hasError('minlength') && !nameFormControl.hasError('maxlength') && !emailFormControl.hasError('maxlength') &&
+      !passwordFormControl.hasError('maxlength') && model.policy && register()"
+      #f="ngForm">
+      <div class="card">
+        <div class="card-header text-center custom-hight-log-signup" data-background-color="rose">
+          <h4 class="card-title log-signup-heading"> Sign up with SHOPnROAR</h4>
+          <div class="social-line">
+            <a class="btn btn-just-icon btn-simple" style="box-shadow: none !important; background: none;" (click)="signInWithFB()">
+              <i class="fa fa-facebook"></i>
+            </a>
+            <a class="btn btn-just-icon btn-simple" style="box-shadow: none !important; background: none" (click)="signInWithGoogle()">
+              <img class="fa" src="../../assets/images/googlelogo/google.png">
+            </a>
+          </div>
+        </div>
+        <div class="card-content col-sm-6">
+          <mat-form-field class="example-full-width mat-size">
+            <input matInput placeholder="User name" tabindex="1" [formControl]="nameFormControl" [(ngModel)]="model.username"
+              (change)="checkuser()" autocomplete="off" required>
+            <span class="pointer" *ngIf="model.username" mat-icon-button matSuffix aria-label="Clear" (click)="model.username=''">
+              <mat-icon>close</mat-icon>
+            </span>
+            <mat-error *ngIf="nameFormControl.hasError('pattern')">
+              Please enter valid user name
+            </mat-error>
+            <mat-error *ngIf="nameFormControl.hasError('required')">
+              User name is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="nameFormControl.hasError('maxlength')">
+              Maximum Length of <strong>Username can be 50 characters</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width mat-size">
+            <input class="first-name" matInput type="text" placeholder="First Name" tabindex="3" [formControl]="nameFormControl"
+              [(ngModel)]="model.first_name" autocomplete="off" required>
+            <span class="pointer" *ngIf="model.first_name" tabindex=-11 mat-icon-button matSuffix aria-label="Clear"
+              (click)="model.first_name=''">
+              <mat-icon>close</mat-icon>
+            </span>
+            <mat-error *ngIf="nameFormControl.hasError('pattern')">
+              Please enter a valid First Name
+            </mat-error>
+            <mat-error *ngIf="nameFormControl.hasError('required')">
+              First Name is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="nameFormControl.hasError('maxlength')">
+              Maximum Length of <strong>First Name can be 100 characters</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width mat-size">
+            <input matInput [type]="hide ? 'password' : 'text'" #password placeholder="Password" tabindex="5"
+              [formControl]="passwordFormControl" [(ngModel)]="model.password" required>
+            <mat-icon class="pointer" data-toggle="tooltip" title="{{hide? 'Show' : 'Hide'}} Password" matSuffix
+              (click)="hide = !hide">{{ hide ? 'visibility' : 'visibility_off' }}</mat-icon>
+            <!--<mat-hint align="start"><strong> </strong> </mat-hint>-->
+            <!--<mat-hint align="end">{{password.value.length}} </mat-hint>-->
+            <mat-error *ngIf="passwordFormControl.hasError('required')">
+              At least <strong>10 characters</strong>
+            </mat-error>
+            <!--<mat-error *ngIf="passwordFormControl.hasError('pattern')">-->
+            <!--Password must contain at least one upper case letter, one lower case letter, one special character and one digit-->
+            <!--</mat-error>-->
+            <mat-error *ngIf="passwordFormControl.hasError('minlength')">
+              Password must be <strong>atleast 10 characters long</strong>
+            </mat-error>
+            <mat-error *ngIf="passwordFormControl.hasError('maxlength')">
+              Maximum Length of <strong>Password can be 30 characters</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="card-content col-sm-6">
+          <mat-form-field class="example-full-width mat-size">
+            <input matInput type="text" placeholder="Email" tabindex="2" [formControl]="emailFormControl"
+              (change)="checkmail()" [(ngModel)]="model.email" autocomplete="off" required>
+            <span class="pointer" *ngIf="model.email" tabindex=-11 mat-icon-button matSuffix aria-label="Clear" (click)="model.email=''">
+              <mat-icon>close</mat-icon>
+            </span>
+            <mat-error *ngIf="emailFormControl.hasError('pattern')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('maxlength')">
+              Maximum Length of <strong>Email can be 100 characters</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width mat-size">
+            <input class="first-name" matInput type="text" placeholder="Last Name" tabindex="4" [formControl]="nameFormControl"
+              [(ngModel)]="model.last_name" autocomplete="off" required>
+            <span class="pointer" *ngIf="model.last_name" tabindex=-11 mat-icon-button matSuffix aria-label="Clear"
+              (click)="model.last_name=''">
+              <mat-icon>close</mat-icon>
+            </span>
+            <mat-error *ngIf="nameFormControl.hasError('pattern')">
+              Please enter a valid Last Name
+            </mat-error>
+            <mat-error *ngIf="nameFormControl.hasError('required')">
+              Last Name is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="nameFormControl.hasError('maxlength')">
+              Maximum Length of <strong>Last Name can be 100 characters</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width mat-size">
+            <input matInput [type]="hide ? 'password' : 'text'" #password placeholder="Confirm Password" tabindex="6"
+              [formControl]="passwordFormControl" [(ngModel)]="model.passwordRepeat" (keyup)="check()" required>
+            <mat-icon class="pointer" data-toggle="tooltip" title="{{hide? 'Show' : 'Hide'}} Password" matSuffix
+              (click)="hide = !hide">{{ hide ? 'visibility' : 'visibility_off' }}</mat-icon>
+            <!--<mat-hint align="end">{{password.value.length}} </mat-hint>-->
+            <mat-error *ngIf="passwordFormControl.hasError('required')">
+              Confirm Password is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="!passwrodmatch">
+              Confirm Password <strong>does not match</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <br>
+        <div class="col-sm-3 agreeterms">
+         <div class="recaptcha-signup">          <app-recapcha></app-recapcha>
+         </div>
+          <div *ngIf="!recaptcha" class="help-block">Invalid text, try again</div>
+
+          <!-- End .checkbox -->
+        </div>
+        <div class=" col-sm-9 " [ngClass]="{ 'has-error':!recaptcha}">
+          <h3 class="News-letter">News Letter</h3>
+          <div class="checkbox">
+            <!-- <mat-checkbox style="width: 10%;" (change)="model.newsLetter = !model.newsLetter" (ngModel)="model.newsLetter"
+              #newsLetter="ngModel" name="newsLetter" value="newsletter">
+            </mat-checkbox> -->
+            <mat-slide-toggle   (change)="model.newsLetter = !model.newsLetter" (ngModel)="model.newsLetter"
+            #newsLetter="ngModel" name="newsLetter" value="newsletter">I wish to subscribe to SHOPnROAR Hot Deals and the SHOPnROAR Newsletter.</mat-slide-toggle>
+
+
+          </div><!-- End .checkbox -->
+          <div class="checkbox">
+            <!-- <mat-checkbox (ngModel)="model.policy" name="policy" #policy="ngModel" (change)="policyChange()" style="width: 10%;">
+            </mat-checkbox> -->
+            <mat-slide-toggle (ngModel)="model.policy" name="policy" #policy="ngModel" (change)="policyChange()">
+                <div class="agreelable">
+                    <span>I have read and agree to the SHOPnROAR
+                      <a  class="terms-of-use signup-link" [routerLink]="['/terms']" target="_blank" > Terms of use
+                      </a> and
+                      <a class="terms-of-use signup-link" [routerLink]="['/policy']" target="_blank" >
+                        Privacy Policy.
+                      </a>
+                    </span>
+                  </div>
+            </mat-slide-toggle>
+
+            <!-- <mat-error *ngIf="!model.policy" style="color: #777777!important;">
+              Please agree with SHOPnROAR Terms of use & Privacy Policy
+            </mat-error> -->
+          </div>
+        </div>
+
+        <div class=" text-center col-sm-12">
+          <button type="submit" class="button "> Sign up</button>
+        </div>
+        <div class=" text-center col-sm-12">
+          <label class="font1"> Already have an account?
+            <a class="signup-link" [routerLink]="['/login']"> Sign In </a>
+          </label>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col-lg-4 col-md-3"></div>
+</div>
+<!-- <app-footer></app-footer>-->

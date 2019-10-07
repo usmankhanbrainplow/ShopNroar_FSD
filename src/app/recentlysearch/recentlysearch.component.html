@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-sm-12">
+    <h1 class="deal-heading"> Recently Searched Items</h1>
+  </div>
+  <div class="col-sm-12   item-container">
+    <ngx-slick style="display:none" class="carousel" #slickModal="slick-modal" [config]="slideConfig4">
+      <div ngxSlickItem *ngFor="let item of RecentlySearch" class="slide">
+        <div class="item-show">
+        <a href={{item.SNR_ProductURL}} target="_blank">
+          <div class="item-img">
+            <img src="{{item.SNR_ImageURL}}" alt="img">
+          </div>
+          <div class="category-name">
+            <!-- <a href="#" >{{item.SNR_Brand}}</a> -->
+            <h2>
+              {{item.SNR_Title}}
+            </h2>
+          </div>
+          <div class="item-price">
+            <div class="price"><a class="discount-price">${{item.SNR_Price}}</a>
+              <div><a><img class="price-image" src="https://storage.shopnroar.com/MerchantLogos/ebay@60.png"></a></div>
+<!--              <div class="image-brand" ><a href="#"><h5 class="image-name">unbelivable</h5>-->
+<!--                <h5 class="image-pracent">Here Put Svg</h5></a>-->
+
+<!--              </div>-->
+
+            </div>
+
+          </div>
+          <div class="item-btns">
+            <button class="btn btn-shop-compare">Shop Now</button>
+<!--            <button class="btn btn-shop-compare">Compare</button>-->
+          </div>
+        </a>
+        </div>
+      </div>
+    </ngx-slick>
+  </div>
+</div>

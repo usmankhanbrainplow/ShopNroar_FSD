@@ -1,0 +1,173 @@
+
+<div class="footer-upper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12 col-xs-12 col-md-3 col-lg-3 sh-pd-ft-fix wow rotateInDownLeft" data-wow-duration="1s">
+        <div class="footer-align">
+          <h2 style="font-weight: bold">Who Are We?</h2>
+          <!--<p>No more nuisances in Creating, refining and managing High quality e-learning content for your Modern audience. <br />Three Exclusive Features One Platform. Explore Most Flexible Modules with GenieCapture. Embark on the Galaxy of GenieCapture and Hook your learners.</p>-->
+          <ul class="list-contact">
+            <li style="font-weight: bold">
+              <!-- <a onclick="topFunction()" routerLink="/pricing"> -->
+              <a (click)="callabout()"><i aria-hidden="true" class="fa fa-book"></i>What is SHOPnROAR?</a>
+            </li>
+            <li style="font-weight: bold">
+              <a   (click)="callwork()"><i aria-hidden="true" class="fa fa-cogs"></i>How it Works?</a>
+            </li>
+            <li style="font-weight: bold">
+              <a (click)="callcontact()"><i aria-hidden="true" class="fa fa-phone-square"></i>Contact Us</a>
+            </li>
+            <!--            <li>-->
+            <!--              <a   routerLink="/Faqs"><i aria-hidden="true" class="fa fa-question-circle"></i>FAQs</a>-->
+            <!--            </li>-->
+
+            <!-- <li>
+              <a routerLink="/blog"><i aria-hidden="true" class="fa fa-chevron-right"></i>Blog</a>
+            </li> -->
+          </ul>
+
+          <h2 style="font-weight: bold">Stalk Us</h2>
+          <ul class="list-social">
+            <!-- <li> -->
+              <!-- <a href="https://www.facebook.com/shopnroar/" target="_blank">
+                <img src="../../assets/images/facebook.png">
+              </a> -->
+              <li >
+                  <a href="https://www.facebook.com/shopnroar/" target="_blank">
+                <i class="fa fa-facebook"></i> Facebook </a>
+            </li>
+            <li>
+              <!-- <a  href="https://twitter.com/ShopNroar"  target="_blank">
+                <img src="../../assets/images/twitter.png">
+              </a> -->
+
+                    <a  href="https://twitter.com/ShopNroar"  target="_blank">
+                <i _ngcontent-sta-c3="" class="fa fa-twitter"></i> Twitter </a>
+            </li>
+            <li>
+              <!-- <a  href=" https://www.pinterest.com/shopnroar/"  target="_blank">
+                <img src="../../assets/images/pintrest.png">
+              </a> -->
+
+                <a  href=" https://www.pinterest.com/shopnroar/"  target="_blank">
+                <i _ngcontent-sta-c3="" class="fa fa-pinterest"></i> Pinterest </a>
+            </li>
+            <!--            <li>-->
+            <!--              <a  onclick="topFunction()" href="https://www.instagram.com/choicegenie772/" target="_blank">-->
+            <!--                <img src="assets/images/instagram.png">-->
+            <!--              </a>-->
+            <!--            </li>-->
+            <!-- <li>
+              <a routerLink="https://twitter.com/Choicegenie1"><i class="fa fa-linkedin"></i></a>
+            </li>
+            <li>
+              <a routerLink="#"><i class="fa fa-google-plus"></i></a>
+            </li> -->
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-xs-12 col-md-6 col-lg-6" >
+        <div class="row">
+          <h2 style="text-align: center; font-weight: bold">Shopping</h2>
+          <div class="footer-top_container clearfix">
+            <div class="row">
+              <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                <ul class="footer-nav">
+                  <!-- <li *ngFor="let slide of AllCategories.slice(0,10)" (click)="CategoryNavigation(slide.id, slide.Category)" style="cursor:pointer; font-weight: bold">
+                    <a class="font-main font-weight-normal color-additional">
+                      <span>
+                    <img class="catleftimages" src="../../assets/images/CatImages/{{slide.Category}}.png"></span>
+ 
+                       {{slide.Category}}
+                    </a>
+                  </li> -->
+                </ul>
+              </div>
+              <!--                <div class="col-md-4 col-lg-4 col-sm-6  col-xs-12">-->
+              <!--                  <ul class="footer-nav">-->
+              <!--                    <li *ngFor="let slide of AllCategories.slice(8,14)" (click)="CategoryNavigation(slide.id, slide.Category)"  style="cursor:pointer">-->
+              <!--                      <a class="font-main font-weight-normal color-additional">-->
+              <!--                        <i class="fa fa-angle-right customColor"></i>{{slide.Category}}-->
+              <!--                      </a>-->
+              <!--                    </li>-->
+              <!--                  </ul>-->
+              <!--                </div>-->
+              <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                <ul class="footer-nav">
+                  <li *ngFor="let slide of AllCategories.slice(11,21)" (click)="CategoryNavigation(slide.id, slide.Category)"  style="cursor:pointer; font-weight: bold">
+                    <a class="font-main font-weight-normal color-additional">
+                       <span>
+                    <img class="catleftimages" src="../../assets/images/CatImages/{{slide.Category}}.png"></span>
+<!--                      <i class="fa fa-angle-right customColor"></i> -->
+                       {{slide.Category}}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div  class="social-widget" >
+            <h2 >Download our Super-Cool Next-Generation Mobile App Now.</h2>
+            <ul  class="footer-android-icon">
+              <li >
+                <a  href="https://play.google.com/store/apps/details?id=com.brainplow.shopnroar&hl=en" target="_blank">
+                  <img class="google-app-store" alt='Get it on Google Play' src="../../assets/images/google-play.png" />
+                </a>
+              </li>
+
+              <li >
+                <a href="https://itunes.apple.com/us/app/shopnroar/id1275085906?mt=8" target="_blank">
+                  <img class="google-app-store" alt='Get it on Google Play' src="../../assets/images/apple-store.png"  />
+                </a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-xs-12 col-md-3 col-lg-3 subscribe wow fadeInRight" data-wow-duration="1s">
+        <a >
+          <h2 style="font-weight: bold; font-size: 28px">What is SHOPnROAR</h2>
+          </a>
+        <div class="footer-content pull-left" style="margin-top: 25px">
+          <p>SHOPnROAR is a next generation artificially intelligent comparative Online Shopping Engine where consumers can search for and compare millions of Products for the ultimate comparative shopping experience. SHOPnROAR assists consumers in researching and buying desired products at the cheapest priceonline from top and trusted stores. SHOPnROAR helps the consumer purchase the desired product with the best reviews at the lowest price possible. </p>
+          <!-- <div class="email">
+            <i class=" icon-anchor fa fa-envelope"></i>
+            <p>Contact@shopnroar.com</p>
+          </div> -->
+          <!-- <div class="phone">
+            <i class=" icon-anchor fa fa-phone"></i>
+            <p>+1-214-302-7330</p>
+          </div> -->
+          <!-- <div class="address"><i class=" icon-anchor fa fa-map-marker"></i>
+            <p>14681 Midway Rd Ste 200, Addison TX 75001 USA</p>
+          </div> -->
+        </div>
+        <div class="col-sm-12 subscribe-div">
+          <input class="form-control input-footer" placeholder="Email Address">
+          <button class="btn btn-rose submit-footer " type="submit" disabled=""><i aria-hidden="true" class="fa fa-arrow-up"></i></button>
+          <!-- <button class="btn btn-subscribe" style="    display: inline-block;padding: 9px 20px;box-shadow: none;margin-bottom: 0;margin-top: 10px;font-size: 14px;">Subscribe</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="footer footer-text ptb-10 clearfix">
+  <div class=" container-fluid">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <p class="" style="font-weight: normal">Copyright &copy; 2019, SHOPnROAR.com All rights reserved.</p>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <div class="social-link pull-right">
+          <a style="cursor: pointer;font-weight: normal" [routerLink]="['/terms']" >Terms of Use</a><span  class="footer-link-border"></span>
+          <a style="cursor: pointer;font-weight: normal" [routerLink]="['/policy']" >Privacy Policy</a>
+          <!-- <span  class="footer-link-border"></span> -->
+          <!-- <a [routerLink]="['/intellectual-property']">Intellectual Property</a> -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+</footer>

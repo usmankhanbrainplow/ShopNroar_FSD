@@ -1,0 +1,65 @@
+<div class="row">
+  <div class="col-sm-12">
+    <h1 class="deal-heading"> SHOPnROAR Hot Deals</h1>
+  </div>
+  <div class="col-sm-12 item-container ">
+    <ngx-slick style="display:none" class="carousel" #slickModal="slick-modal" [config]="slideConfig3">
+      <div ngxSlickItem *ngFor="let item of products" class="slide">
+        <div class="item-show" >
+          <a href={{item.SNR_ProductURL}} target="_blank">
+          <!-- <div class="category-name">
+            <a href="#" >{{item.SNR_Brand}}</a>
+            <h2>
+              {{item.SNR_Title}}
+            </h2>
+          </div> -->
+          <div class="item-img">
+            <img  src="{{item.SNR_ImageURL}}" alt="img">
+          </div>
+          <div class="category-name">
+
+            <h2>
+              {{item.SNR_Title}}
+            </h2>
+          </div>
+            <div class="Categories-logo">
+              <img _ngcontent-c12=""  src="https://storage.shopnroar.com/MerchantLogos/{{item.SNR_Available.toLowerCase()}}@60.png" style="width: 60px">
+            </div>
+            <div class="item-price saveperc"  *ngIf="item.SNR_PriceAfter == -1 && item.SNR_PriceBefore == -1" >
+              <div class="price"><a class="discount-price">Check price</a>
+              </div>
+              <div class="saveperc"></div>
+            </div>
+            <div class="item-price" *ngIf="item.SNR_PriceAfter !== -1 && item.SNR_PriceBefore == -1" >
+              <div class="price" ><a class="discount-price" >${{item.SNR_PriceAfter}}</a>
+              </div>
+              <div class="saveperc"></div>
+            </div>
+            <div class="item-price saveperc"  *ngIf="item.SNR_PriceAfter == -1 && item.SNR_PriceBefore !== -1" >
+              <div class="price"><a class="discount-price" >Check Price <s>${{item.SNR_PriceBefore}}</s></a>
+              </div>
+              <div class="saveperc"></div>
+            </div>
+            <div class="item-price" *ngIf="item.SNR_PriceAfter !== -1 && item.SNR_PriceBefore !== -1">
+              <div class="price"><a class="discount-price">${{item.SNR_PriceAfter}} <s>${{item.SNR_PriceBefore}}</s></a>
+              </div>
+              <div class="saveperc">
+                <span *ngIf="item.SNR_PriceAfter !== -1 && item.SNR_PriceBefore !== -1 && item.SNR_PriceBefore !== 0" style="color: green">You save {{100 - (item['SNR_PriceAfter']/item['SNR_PriceBefore']*100).toFixed()}}%</span>
+              </div>
+              <!--                      <div style="color: green">You saved {{save}}%</div>-->
+              <!--              <div><a href="#">-->
+              <!--                here put SVG-->
+              <!--              </a></div>-->
+            </div >
+
+          <div class="item-btns">
+            <button class="btn btn-shop-compare catButton">Shop Now</button>
+<!--            <button class="btn btn-shop-compare">Compare</button>-->
+          </div>
+          </a>
+        </div>
+      </div>
+    </ngx-slick>
+
+  </div>
+</div>

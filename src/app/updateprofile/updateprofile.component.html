@@ -1,0 +1,135 @@
+
+<section id="pageContent" class="page-content">
+  <div class="container-fluid sidebar-container">
+    <div class="row">
+      <div class="sidebar col-lg-3 col-md-3 col-sm-3 col-xs-12 clearfix" >
+
+        <h3 class="sidebar-title font-additional font-weight-bold text-uppercase customColor "
+        >
+        <i class="fas fa-user icon"></i> My Profile</h3>
+
+        <ul class="categories-tree " >
+
+          <li class="side-bar-style" >
+            <a [routerLink]="['/profile']"
+               class="font-additional font-weight-normal hover-focus-color color-third text-uppercase active">
+              <i class="fas fa-user icon"></i>
+              <span  >My Profile</span>
+            </a>
+          </li>
+
+          <li class="side-bar-style">
+            <a style="cursor: pointer;" [routerLink]="['/myshopnroar']"
+               class="font-additional font-weight-normal hover-focus-color color-third text-uppercase">
+              <i class="fas fa-heart icon"></i>
+              <span  >My Wishlist</span>
+            </a>
+          </li>
+          <li class="side-bar-style"  *ngIf="sgflag['flag']!=true">
+            <a style="cursor: pointer;" [routerLink]="['/updatepassword']"
+               class="font-additional font-weight-normal hover-focus-color color-third text-uppercase">
+              <i class="fas fa-key icon"></i>
+
+              <span  >Change Password</span>
+            </a>
+          </li>
+          <li class="side-bar-style">
+          <a style="cursor: pointer;" style="cursor: pointer;" (click)="logout()"
+             class="font-additional font-weight-normal hover-focus-color color-third text-uppercase">
+            <i class="fas fa-lock icon"></i>
+
+
+            <span >Logout</span>
+          </a>
+        </li>
+        </ul>
+
+      </div>
+
+      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12  profile-div" >
+          <div class="top-padding">
+              <div class="container sh-advnce-search pt-10px">
+                <div class="card one change-pass">
+                    <form (ngSubmit)="f.form.valid  && update()" #f="ngForm">
+                  <div class="card-header" data-background-color="red">
+                    <h2><i class="fa fa-user-circle"></i>Update Profile</h2>
+                  </div>
+                  <div class="card-content">
+                      <div class="row mrg-btm">
+                          <div class="col-sm-12" style="margin-top: 10px">
+                              <mat-form-field>
+                                <input  matInput type="text" class="form-control"   style="background-color: #eeeeee"  class="form-control" (keyup)="checkuser()"
+                                       pattern="^[a-zA-Z][a-zA-Z0-9]*[._-]?[a-zA-Z0-9]+$" name="username" [(ngModel)]="model.username"
+                                       #username="ngModel" required placeholder="Username" disabled>
+                                <div>
+                                  <span *ngIf="UserError == false " style="color: green" class="glyphicon glyphicon-ok-sign form-control-feedback"></span>
+                                  <span *ngIf="UserError == true " style="color: red" class="glyphicon glyphicon-remove-sign form-control-feedback"></span>
+                                </div>
+                                <div *ngIf="f.submitted && username.errors" class="help-block">Username is invalid
+                                </div>
+                                <div *ngIf=" UserError==true" class="help-block">Username is already signed up
+                                </div>
+                                </mat-form-field>
+                          </div>
+                      </div>
+                      <div class="row mrg-btm">
+                          <div class="col-sm-12 relative">
+                              <mat-form-field>
+                                <input  matInput type="text" placeholder="First name" class="form-control"
+                                       pattern="^([a-zA-Z]+[,.]?[ ]?|[a-z]+['-]?)+$" name="first_name" [(ngModel)]="model.first_name"
+                                       #first_name="ngModel" required>
+                                <div *ngIf="f.submitted && !first_name.valid && first_name.errors " class="help-block">First name is
+                                  required
+
+                                </div>
+                              </mat-form-field>
+<!--                                <p class="error" *ngIf="invalid && newPass!='' && !changePass.controls.newPass.hasError('pattern')">Old password and new password cannot be same</p> -->
+                          </div>
+                      </div>
+                      <div class="row mrg-btm">
+                          <div class="col-sm-12 relative">
+                              <mat-form-field>
+                                <input  matInput type="text" class="form-control" pattern="^([a-zA-Z]+[,.]?[ ]?|[a-z]+['-]?)+$" name="last_name"
+                                       [(ngModel)]="model.last_name" #last_name="ngModel" required placeholder="Last name">
+                                <div *ngIf="f.submitted && !last_name.valid && last_name.errors" class="help-block">Last name is
+                                  required
+                                </div>
+                              </mat-form-field>
+                          </div>
+                          <div class="col-sm-12 relative">
+                              <mat-form-field>
+                                <input  matInput type="email" class="form-control" class="form-control"
+                                       pattern="^(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)" name="email"
+                                       (change)="checkmail()"
+                                       [(ngModel)]="model.email" #email="ngModel" placeholder="Email" required>
+                                <span *ngIf="emailError == false " style="color: green"
+                                      class="glyphicon glyphicon-ok-sign form-control-feedback"></span>
+                                <span *ngIf="emailError == true " style="color: red"
+                                      class="glyphicon glyphicon-remove-sign form-control-feedback"></span>
+                              </mat-form-field>
+                          </div>
+                      </div>
+                    <div *ngIf="f.submitted && email.errors  && !email.valid" class="help-block">
+                      Email is invalid
+                    </div>
+                    <div *ngIf="emailError==true" class="help-block">
+                      Email is already signed up
+                    </div>
+                      <div class="row">
+                          <div class="col-sm-12 text-center">
+                              <button class="update-btn" *ngIf="flag!=true" type="submit">Update</button>
+                          </div>
+                      </div>
+                  </div>
+                </form>
+                </div>
+              </div>
+            </div>
+      </div>
+      </div>
+    </div>
+
+</section>
+
+
+<!--<app-footer></app-footer>-->

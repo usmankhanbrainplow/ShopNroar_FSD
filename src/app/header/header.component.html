@@ -1,0 +1,173 @@
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar3">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand header-img" href="/"><img src="../../assets/images/ShopnRoar%20Logo.svg" alt="Dispute Bills">
+      </a>
+    </div>
+    <div id="navbar3" class="navbar-collapse collapse">
+      <a id="icon-type-to-search"  href="#" data-target=".example-modal-lg" data-toggle="modal" (click)="modelshow()" class="font-additional color-main text-uppercase hover-focus-color">
+        <button class="btn top-search-btn" id="serbtn" (click)="refreshlist()">Search
+          <i class=" fa fa-search"></i>
+        </button>
+      </a>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a [routerLink]="['/sub-cat']" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            <i class="fas fa-list-ul"></i>Categories <span class="caret"></span></a>
+
+          <ul class="dropdown-menu" role="menu" style="width: 480px!important; left: -165px!important;">
+            <div class="col-sm-6  col-xs-12">
+              <li class="submenu" *ngFor="let item of getProducts_Sub.slice(0,getProducts_Sub.length/2)">
+                <a *ngIf="item.Category!='Uncategorized'" (click)="CategoryNavigation(item.id, item.Category)"
+                 class="dropdown-toggle cata "
+                 data-toggle="dropdown" aria-expanded="false">
+                  <span>
+                    <img class="catleftimages" src="../../assets/images/CatImages/{{item.Category}}.png"></span><span class="items"> {{item.Category}}</span>
+                </a>
+                <ul class="sub-category-dropdown">
+                  <div>
+                    <img class="catleftimages" src="../../assets/images/SubCatImages/{{item.Category}}.jpg">
+                  </div>
+                  <li *ngFor="let item1 of item.SubCategories let i= index" class="sub-li">
+                    <a (click)="Navigation(item.id,item1.id,item1.SubCat)" class="sub-cat" *ngIf="i<10">{{item1.SubCat}}</a>
+                    <a [routerLink]="['/sub-cat']" class="Sub-Cat-Button" style="font-size: 12px!important; font-weight: bold"
+                     *ngIf="i==11">Show More...</a>
+                  </li>
+                </ul>
+              </li>
+            </div>
+
+            <div class="col-sm-6 col-xs-12">
+              <li class="submenu" *ngFor="let item of getProducts_Sub.slice(getProducts_Sub.length/2, getProducts_Sub.length)" >
+                <a *ngIf="item.Category!='Uncategorized'" (click)="CategoryNavigation(item.id, item.Category)" class="dropdown-toggle " data-toggle="dropdown" aria-expanded="false">
+                  <span>
+                    <img class="catleftimages" src="../../assets/images/CatImages/{{item.Category}}.png"></span><span class="items"> {{item.Category}}</span>
+                </a>
+                <ul class="sub-category-dropdown">
+                  <div>
+                    <img class="catleftimages" src="../../assets/images/SubCatImages/{{item.Category}}.jpg">
+                  </div>
+                  <li *ngFor="let item1 of item.SubCategories let i= index" class="sub-li">
+                    <a (click)="Navigation(item.id,item1.id,item1.SubCat)" *ngIf="i<10" class="sub-cat">{{item1.SubCat}}</a>
+                    <a [routerLink]="['/sub-cat']" class="Sub-Cat-Button" style="font-size: 12px!important; font-weight: bold" *ngIf="i==11">Show More...</a>
+                  </li>
+                </ul>
+              </li>
+            </div>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a [routerLink]="['/hotdeals']" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            <i class="fas fa-fire"></i>Hot Deals <span class="caret"></span></a>
+          <ul class="dropdown-menu hot-deals-ul" role="menu">
+            <div class="col-sm-3 col-xs-12  ">
+              <li *ngFor="let item of brandsName.slice(0,brandsName.length/4)" [routerLink]="['/deals',item.name]" class="hot-deals-li">
+                <span>
+                  <div *ngIf="item!='Uncategorized'" class="hot-deal-dropdown-img"><img  class="hot-deal-img"class="hot-deal-img"src={{item.image40px}} alt="img"></div>
+                  <span class="img-heading" style="font-size: 12px!important; font-weight: 600!important;">{{item.name}}</span>
+                </span>
+              </li>
+            </div>
+
+            <div class="col-sm-3 col-xs-12 hot-deals">
+              <li *ngFor="let item of brandsName.slice(brandsName.length/4,brandsName.length/4+brandsName.length/4 )" [routerLink]="['/deals',item.name]" class="hot-deals-li" >
+                <span [routerLink]="['/deals',item.name]">
+                  <div *ngIf="item!='Uncategorized'" class="hot-deal-dropdown-img"><img  class="hot-deal-img"src={{item.image40px}} alt="img"></div>
+                  <span class="img-heading" style="font-size: 12px!important; font-weight: 600!important;">{{item.name}}</span>
+                </span>
+              </li>
+            </div>
+
+            <div class="col-sm-3 col-xs-12 hot-deals">
+              <li *ngFor="let item of brandsName.slice(brandsName.length/4+brandsName.length/4 , brandsName.length/4+brandsName.length/4+brandsName.length/4)" [routerLink]="['/deals',item.name]" class="hot-deals-li">
+                <span [routerLink]="['/deals',item.name]">
+                  <div *ngIf="item!='Uncategorized'" class="hot-deal-dropdown-img"><img  class="hot-deal-img" src={{item.image40px}} alt="img"></div>
+                  <span class="img-heading" style="font-size: 12px!important; font-weight: 600!important;">{{item.name}}</span>
+                </span>
+              </li>
+            </div>
+            <div class="col-sm-3 col-xs-12 hot-deals">
+              <li *ngFor="let item of brandsName.slice(brandsName.length/4+brandsName.length/4+brandsName.length/4 , brandsName.length)" [routerLink]="['/deals',item.name]" class="hot-deals-li">
+                <span [routerLink]="['/deals',item.name]">
+                  <div *ngIf="item!='Uncategorized'" class="hot-deal-dropdown-img"><img  class="hot-deal-img"src={{item.image40px}} alt="img"></div>
+                  <span class="img-heading" style="font-size: 12px!important; font-weight: 600!important;">{{item.name}}</span>
+                </span>
+              </li>
+            </div>
+          </ul>
+        </li>
+        <ng-container *ngIf="sgflag">
+          <li>
+          <a *ngIf="sgflag.login!=true" href="https://play.google.com/store/apps/details?id=com.brainplow.shopnroar&hl=en" target="_blank"style="font-size: 25px;font-weight: 600;"><i class="fab fa-android"></i></a>
+          </li>
+          <li>
+            <a *ngIf="sgflag.login!=true" href="https://itunes.apple.com/us/app/shopnroar/id1275085906?mt=8" target="_blank" style="font-size: 25px;font-weight: 600;"><i class="fab fa-apple"></i></a>
+          </li>
+        </ng-container>
+        <ng-container *ngIf="sgflag">
+            <li>
+<!--              <a *ngIf="sgflag.login!=true" href="https://play.google.com/store/apps/details?id=com.brainplow.shopnroar&hl=en" target="_blank" class="Drop-Down" style="font-size: 18px;top: 35px;font-weight: 600;"><i class="fab fa-android"></i></a>-->
+<!--              <a *ngIf="sgflag.login!=true" href="https://itunes.apple.com/us/app/shopnroar/id1275085906?mt=8" target="_blank" class="Drop-Down" style="font-size: 18px;top: 35px;font-weight: 600;"><i class="fab fa-apple"></i></a>-->
+
+              <a *ngIf="sgflag.login!=true"  ><a  class="Drop-Down" [routerLink]="['/login']"><i class="fas fa-sign-in-alt"></i> Sign In</a>
+
+                <label *ngIf="sgflag.login!=true" style="color: #616161; font-size: 25px; margin-left: 15px">|</label>
+              </a>
+            </li>
+            <li>
+              <a *ngIf="sgflag.login!=true" class="last-child" ><a  class="Drop-Down" [routerLink]="['/register']"><i class="fas fa-unlock-alt"></i> Sign up</a></a>
+
+            </li>
+
+          <a *ngIf="sgflag.login==true">
+            <a class="dropdown Drop-Down" ><i class="fas fa-user"></i> My Shopnroar
+              <ul class="dropdown-content dropdown-menu" style="width: 200px!important; left: -45px!important;">
+                <li [routerLink]="['/profile']">        <a ><i class="fas fa-user"></i><span> My Profile</span></a></li>
+                <li [routerLink]="['/myshopnroar']">    <a ><i class="fas fa-heart"></i> My Wishlist</a></li>
+                <li [routerLink]="['/hotdeals']">       <a><i class="fas fa-fire"></i> My Hot Deals</a></li>
+                <li [routerLink]="['/updatepassword']"> <a ><i class="fas fa-key"></i> Change Password</a></li>
+                <li (click)="logout()"><a style="font-size: 15px!important; "><i class="fas fa-lock"></i> Logout</a></li>
+              </ul>
+<!--              <a href="https://play.google.com/store/apps/details?id=com.brainplow.shopnroar&hl=en" target="_blank" class="Drop-Down" style="font-size: 18px;top: 35px;font-weight: 600;"><i class="fab fa-android"></i> Android</a>-->
+<!--              <a href="https://itunes.apple.com/us/app/shopnroar/id1275085906?mt=8" target="_blank" class="Drop-Down" style="font-size: 18px;top: 35px;font-weight: 600;"><i class="fab fa-apple"></i> Apple</a>-->
+
+            </a>
+            </a>
+        </ng-container>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div aria-hidden="false" role="dialog" tabindex="-1" class="modal fade example-modal-lg search-wrapper in search-modal-box" id="mainModel">
+  <div class="modal-dialog modal-lg ">
+    <div class="modal-content cross-div">
+      <p class="clearfix">
+        <button data-dismiss="modal" class="close" id="closebtn" type="button">
+          <span class="fa fa-times fa-2x color-main search-form-close" aria-hidden="true" style="font-size: 1.5em"></span>
+        </button>
+      </p>
+      <form role="form" class="form-inline form-search">
+        <div class="form-group">
+          <input type="text" id="querytosearch" name=querysearch [(ngModel)]="query" #querysearch="ngModel" (input)="filter(query)" (keyup.enter)="Search()" placeholder="Search to SHOP with a ROAR" class=" search-input form-control input-lg font-main font-weight-normal color-main" >
+        </div>
+      </form>
+      <div class="search-results scrollbar" id="style-1">
+        <ul *ngFor="let item of listTitles">
+          <li>
+            <a class="Search-li-anchor" (click)="select(item)">{{item}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

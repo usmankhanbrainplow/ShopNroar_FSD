@@ -1,0 +1,19 @@
+.item-show {
+  max-width: 285px;
+  min-height: 350px;
+  max-height: 460px;
+  margin:10px 5px;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 10px;
+  cursor: pointer;
+  background: #fff;
+  text-align: left;
+  width: 100%;
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,.3);
+  transition: all .3s ease-out;
+}
+.Categories-logo{
+  margin-top: -5px;
+  width: 50px;
+}

@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="col-sm-12">
+    <h1 class="deal-heading"> Health and Beauty</h1>
+  </div>
+  <div class="col-sm-12 item-container ">
+    <ngx-slick style="display:none" class="carousel" #slickModal="slick-modal" [config]="slideConfig9">
+      <div ngxSlickItem class="item-show slide" *ngFor="let item of Electronics">
+        <a [routerLink]="['/details']" [queryParams]="{ Model: item.SNR_SKU, Name:item.SNR_Title, ID:item.id  }">
+          <div class="item-img">
+            <img src={{item.SNR_ImageURL}}>
+          </div>
+          <div class="category-name">
+            <!--                  <a>{{item.SNR_Brand}}</a>-->
+            <h2>
+              {{item.SNR_Title}}
+            </h2>
+          </div>
+          <div class="Categories-logo">
+            <img _ngcontent-c12=""  src="https://storage.shopnroar.com/MerchantLogos/{{item.SNR_Available.toLowerCase()}}@60.png">
+          </div>
+          <div class="item-price">
+            <div class="price"><a class="discount-price">${{item.SNR_Price}}</a>
+            </div>
+            <!--              <div>-->
+            <!--                <div class="progress-holder" *ngIf="item.SNR_CustomerReviews>=2.5 && item.SNR_CustomerReviews<5 ">-->
+            <!--                  <round-progress class="small-progress" [current]="item.SNR_CustomerReviews" [max]="max" [color]="'#53c722'"-->
+            <!--                                  [background]="'#eaeaea'" [radius]="100" [stroke]="20" [semicircle]="false" [rounded]="false"-->
+            <!--                                  [clockwise]="true" [responsive]="false" [duration]="800" [animation]="'easeInOutQuart'"-->
+            <!--                                  [animationDelay]="5" style="margin: auto">-->
+
+            <!--                  </round-progress>-->
+            <!--                  <div class="inner-text-grid">{{(item.SNR_CustomerReviews/5)*100 | number : '1.0-0'}}%</div>-->
+
+            <!--                </div>-->
+            <!--                <div class="progress-holder"  *ngIf="item.SNR_CustomerReviews<2.5 && item.SNR_CustomerReviews>=1  ">-->
+            <!--                  <round-progress class="small-progress" [current]="item.SNR_CustomerReviews" [max]="max" [color]="'#ca260f'"-->
+            <!--                                  [background]="'#eaeaea'" [radius]="100" [stroke]="20" [semicircle]="false" [rounded]="false"-->
+            <!--                                  [clockwise]="true" [responsive]="false" [duration]="800" [animation]="'easeInOutQuart'"-->
+            <!--                                  [animationDelay]="5" style="margin: auto">-->
+            <!--                  </round-progress>-->
+            <!--                  <div class="inner-text-grid">{{(item.SNR_CustomerReviews/5)*100 | number : '1.0-0'}}%</div>-->
+            <!--                </div>-->
+            <!--                <div class="progress-holder"  *ngIf="item.SNR_CustomerReviews==0">-->
+            <!--                  <round-progress class="small-progress" [current]=3 [max]="max" [color]="'#9dca22'" [background]="'#eaeaea'"-->
+            <!--                                  [radius]="100" [stroke]="20" [semicircle]="false" [rounded]="false" [clockwise]="true"-->
+            <!--                                  [responsive]="false" [duration]="800" [animation]="'easeInOutQuart'" [animationDelay]="5"-->
+            <!--                                  style="margin: auto">-->
+            <!--                  </round-progress>-->
+            <!--                  <div class="inner-text-grid">{{(3/5)*100 | number : '1.0-0'}}%</div>-->
+            <!--                </div>-->
+            <!--                <div class="progress-holder" s *ngIf="item.SNR_CustomerReviews==5  ">-->
+            <!--                  <round-progress class="small-progress" [current]="item.SNR_CustomerReviews" [max]="max" [color]="'#53c722'"-->
+            <!--                                  [background]="'#eaeaea'" [radius]="100" [stroke]="20" [semicircle]="false" [rounded]="false"-->
+            <!--                                  [clockwise]="true" [responsive]="false" [duration]="800" [animation]="'easeInOutQuart'"-->
+            <!--                                  [animationDelay]="5" style="margin: auto">-->
+            <!--                  </round-progress>-->
+            <!--                  <div class="inner-text-grid1">{{(item.SNR_CustomerReviews/5)*100 | number : '1.0-0'}}%</div>-->
+            <!--                </div>-->
+            <!--              </div>-->
+          </div>
+        </a>
+        <div class="item-btns">
+          <a class="Show-button" href={{item.SNR_ProductURL}} target="_blank"><button class="btn btn-shop-compare-cat catButton">Shop Now</button></a>
+          <a class="Show-button" [routerLink]="['/details']" [queryParams]="{ Model: item.SNR_SKU, Name:item.SNR_Title, ID:item.id  }"><button class="btn btn-shop-compare-cat catButton">Compare</button></a>
+        </div>
+      </div>
+    </ngx-slick>
+
+  </div>
+</div>

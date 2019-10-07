@@ -1,0 +1,277 @@
+<section class="categories_section container-fluid">
+  <div class="row">
+    <div class="col-sm-2 sidebar padding-0">
+      <div class="sidebar-cats">
+        <h3 class="Filter-catagories">Filter by Categories</h3>
+        <ul>
+          <li *ngFor=" let item of Categories">
+            <a (click)="CategoryNavigation(item.id, item.Category)">
+              <img  class="slidebar-iamge" src="../../assets/images/CatImages/{{item.Category}}.png">
+              <span *ngIf="item=='Uncategorized'">Othes</span>
+              <span class="side-res" *ngIf="item!='Uncategorized'" style="margin-left: 10px; color: black; font-size: 12px"> {{item.Category}}</span>
+            </a>
+          </li>
+        </ul>
+        <div>
+          <ul class="categories-tree">
+            <a>  <h3>Price Range</h3></a>
+            <li>
+              <input (click)="ProductPrice(-1,-1)" id="p0" name="cc" type="radio">
+              <label for="p0"> <span class="button"></span> All Prices </label>
+            </li>
+            <li>
+              <input (click)="ProductPrice(0,200)" id="p1" name="cc" type="radio">
+              <label for="p1"> <span class="button"></span> $0 - $200 </label>
+            </li>
+            <li>
+              <input (click)="ProductPrice(200,400)" id="p2" name="cc" type="radio">
+              <label for="p2"> <span class="button"></span> $200 - $400 </label>
+            </li>
+            <li>
+              <input (click)="ProductPrice(400,600)" id="p3" name="cc" type="radio">
+              <label for="p3"> <span class="button"></span> $400 - $600 </label>
+            </li>
+            <li>
+              <input (click)="ProductPrice(600,800)" id="p5" name="cc" type="radio">
+              <label for="p5"> <span class="button"></span> $600 - $800 </label>
+            </li>
+            <li>
+              <input (click)="ProductPrice(800,1000)" id="p6" name="cc" type="radio">
+              <label for="p5"> <span class="button"></span> $800 - $1000 </label>
+            </li>
+            <li>
+              <input (click)="ProductPrice(1000,10000)" id="p7" name="cc" type="radio">
+              <label for="p5"> <span class="button"></span> Above $1000 </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- ...............Price Range................... -->
+
+    <div class="col-sm-10">
+      <h1 class="showing-res" style="font-weight: bold; font-size: 30px">Showing Results for:
+        <span class="result" style="font-weight: bold;color: red">Hot Deals</span>
+      </h1>
+
+      <div class="row">
+        <div class="col-sm-2">
+          <mat-select placeholder="Filters" [(ngModel)]="selectedOption" style="width: 60%;margin: 5px 0">
+            <mat-option *ngFor="let c of options" [value]="c" (click)="onChangeOption(c)">{{c.name}}
+            </mat-option>
+          </mat-select>
+        </div>
+        <div class="col-sm-6" style="text-align: center">
+          <ul class="pagination " *ngIf="pager.pages && pager.pages.length">
+            <li [ngClass]="{hide:pager.currentPage === 1}">
+              <a (click)="setPage(pager.currentPage - 1)" class="view-1s" class=" btn-fill">
+                <i class="fa fa-angle-left"></i>
+              </a>
+            </li>
+            <li [ngClass]="{hide:pager.currentPage <= 30}">
+              <a (click)="setPage(pager.currentPage - 30)">...</a>
+            </li>
+            <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+              <a (click)="setPage(page)" class="view-plan-details">{{page | number}}</a>
+            </li>
+
+            <li [ngClass]="{hide:pager.currentPage === pager.totalPages}" *ngIf="(pager.startPage  + 3) <= pager.totalPages">
+              <a (click)="setPage(pager.currentPage + 3)">...</a>
+            </li>
+            <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"> <a>Of</a></li>
+            <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+              <a (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages
+                | number}}</a>
+            </li>
+            <li *ngIf="pager.currentPage === pager.totalPages"> <a>Of</a></li>
+            <li *ngIf="pager.currentPage === pager.totalPages">
+              <a (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages
+                | number}}</a>
+            </li>
+            <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+              <a (click)="setPage(pager.currentPage + 1)" class="view-plan-details" class=" bd-color"
+                 type="Next">
+                <i class="fa fa-angle-right top-set"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-sm-2">
+          <mat-select placeholder="Filters" [(ngModel)]="selectedCount" style="font-size: 12px; width: 60%">
+            <mat-option *ngFor="let c of countoptions" [value]="c" (click)="onChangeCount(c)">{{c.name}}
+            </mat-option>
+          </mat-select>
+        </div>
+
+        <div class="col-sm-2 g" style="text-align: right">
+          <a *ngIf="gridview==true && listview==false" (click)="listviewfun()" style="cursor: pointer !important;"
+             class="pull-right grid-type hover-focus-border">
+            <i class="fa fa-list-ul" style="vertical-align: middle;border: 1px solid black; width: 28px;height: 28px;margin-right: 5px;padding: 6px;"></i>
+          </a>
+          <a *ngIf="gridview==false && listview==true" (click)="listviewfun()" style="cursor: pointer !important;"
+             class="pull-right grid-type active customBgColor color-main">
+            <i class="fa fa-list-ul" style="vertical-align: middle;border: 1px solid black; width: 28px;height: 28px;margin-right: 5px;padding: 6px;"></i>
+          </a>
+          <a *ngIf="gridview==true && listview==false" (click)="gridviewfun()" style="cursor: pointer !important;"
+             class="pull-right grid-type active customBgColor color-main">
+            <i class="fa fa-th" style="vertical-align: middle;background-color: #cc0000 ;color: #FFFFFF;width: 28px;height: 28px;margin-right: 5px;padding: 6px;"></i>
+          </a>
+          <a *ngIf="gridview==false && listview==true" (click)="gridviewfun()" style="cursor: pointer !important;"
+             class="pull-right grid-type hover-focus-border">
+            <i class="fa fa-th"  style="vertical-align: middle;background-color: #cc0000 ;color: #FFFFFF;width: 28px;height: 28px;margin-right: 5px;padding: 6px;"></i>
+          </a>
+        </div>
+      </div>
+      <div class="search-content" *ngIf="gridview==true && listview==false">
+        <div class="item-show" *ngFor="let item of AllProducts">
+          <a href={{item.SNR_ProductURL}} target="_blank">
+            <div class="item-img">
+              <img src={{item.SNR_ImageURL}}>
+            </div>
+            <div class="category-name">
+              <a>{{item.SNR_Brand}}</a>
+              <h2>
+                {{item.SNR_Title}}
+              </h2>
+            </div>
+            <div class="Categories-logo">
+              <img _ngcontent-c12=""  src="https://storage.shopnroar.com/MerchantLogos/{{item.SNR_Available.toLowerCase()}}@60.png">
+            </div>
+            <div class="item-price saveperc"  *ngIf="item.SNR_PriceAfter == -1 && item.SNR_PriceBefore == -1" >
+              <div class="price"><a class="discount-price">Check price</a>
+              </div>
+              <div class="saveperc"></div>
+            </div>
+            <div class="item-price" *ngIf="item.SNR_PriceAfter !== -1 && item.SNR_PriceBefore == -1" >
+              <div class="price" ><a class="discount-price" >${{item.SNR_PriceAfter}}</a>
+              </div>
+              <div class="saveperc"></div>
+            </div>
+            <div class="item-price saveperc"  *ngIf="item.SNR_PriceAfter == -1 && item.SNR_PriceBefore !== -1" >
+              <div class="price"><a class="discount-price" >Check Price <s>${{item.SNR_PriceBefore}}</s></a>
+              </div>
+              <div class="saveperc"></div>
+            </div>
+            <div class="item-price" *ngIf="item.SNR_PriceAfter !== -1 && item.SNR_PriceBefore !== -1">
+              <div class="price"><a class="discount-price">${{item.SNR_PriceAfter}} <s>${{item.SNR_PriceBefore}}</s></a>
+              </div>
+              <div class="saveperc">
+                <span *ngIf="item.SNR_PriceAfter !== -1 && item.SNR_PriceBefore !== -1 && item.SNR_PriceBefore !== 0" style="color: green">You save {{100 - (item['SNR_PriceAfter']/item['SNR_PriceBefore']*100).toFixed()}}%</span>
+              </div>
+              <!--                      <div style="color: green">You saved {{save}}%</div>-->
+              <!--              <div><a href="#">-->
+              <!--                here put SVG-->
+              <!--              </a></div>-->
+            </div >
+            <div class="item-btns">
+              <button class="btn btn-shop-compare-cat catButton">Shop Now</button>
+<!--              <button class="btn btn-shop-compare-cat">Compare</button>-->
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="search-content" *ngIf="gridview==false && listview==true">
+
+        <!-- Start List View -->
+        <div class="list-view" *ngFor="let item of  AllProducts">
+          <ul class="products-list">
+            <li class="row">
+              <div class="product-list-img col-lg-3 col-md-3col-sm-3 col-xs-12">
+                <a href={{item.SNR_ProductURL}} target="_blank">
+                  <img src={{item.SNR_ImageURL}}></a>
+              </div>
+              <div class="detail-box col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                <div class="info">
+
+                  <a href={{item.SNR_ProductURL}} target="_blank">
+                    <h3>{{item.SNR_Brand}}</h3>
+                    <a [routerLink]="['/details']" [queryParams]="{ Model: item.SNR_SKU, Name:item.SNR_Title, ID:item.id  }">
+                      <img _ngcontent-c12=""  src="https://storage.shopnroar.com/MerchantLogos/{{item.SNR_Available.toLowerCase()}}@60.png">
+                    </a>
+                    <h4 >{{item.SNR_Title}}</h4>
+                    <!--                    <div style="font-size: 25px; color: #cc0000">${{item.SNR_Price}}</div>-->
+                    <div class="item-price"  *ngIf="item.SNR_PriceAfter == -1 && item.SNR_PriceBefore == -1">
+                      <div class="price"><a class="discount-price">Check price</a>
+                      </div>
+                    </div>
+                    <div class="item-price" *ngIf="item.SNR_PriceAfter !== -1 && item.SNR_PriceBefore == -1" >
+                      <div class="price"><a class="discount-price" >${{item.SNR_PriceAfter}}</a>
+                      </div>
+                    </div>
+                    <div class="item-price" *ngIf="item.SNR_PriceAfter == -1 && item.SNR_PriceBefore !== -1" >
+                      <div class="price"><a class="discount-price" >Check Price <s>${{item.SNR_PriceBefore}}</s></a>
+                      </div>
+                    </div>
+                    <div class="item-price"style="border-bottom: none!important;" >
+                      <div class="price"><a class="discount-price">${{item.SNR_PriceAfter}}<s>${{item.SNR_PriceBefore}}</s></a>
+                      </div>
+
+                      <!--              <div><a href="#">-->
+                      <!--                here put SVG-->
+                      <!--              </a></div>-->
+                      <div *ngIf="item.SNR_PriceAfter !== -1 && item.SNR_PriceBefore !== -1 && item.SNR_PriceBefore !== 0">
+                        <div style="color: green">You save {{100 - (item['SNR_PriceAfter']/item['SNR_PriceBefore']*100).toFixed()}}%</div>
+                      </div>
+                    </div>
+
+
+                    <!--                  <p>{{item.SNR_Description}}</p>-->
+                  </a>
+                  <div class="text-left">
+                    <a href={{item.SNR_ProductURL}} target="_blank"><button class="btn btn-shop-compare-cat catButton">Shop Now</button></a>
+
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- End List View -->
+      </div>
+      <div class="col-sm-12 items-subcategory" style="text-align: center; margin: 10px 0">
+        <ul class="pagination" *ngIf="pager.pages && pager.pages.length">
+          <li [ngClass]="{hide:pager.currentPage === 1}">
+            <a (click)="setPage(pager.currentPage - 1)" class="view-1s" class=" btn-fill">
+              <i class="fa fa-angle-left"></i>
+            </a>
+          </li>
+          <li [ngClass]="{hide:pager.currentPage <= 30}">
+            <a (click)="setPage(pager.currentPage - 30)">...</a>
+          </li>
+          <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+            <a (click)="setPage(page)" class="view-plan-details">{{page | number}}</a>
+          </li>
+
+          <li [ngClass]="{hide:pager.currentPage === pager.totalPages}" *ngIf="(pager.startPage  + 3) <= pager.totalPages">
+            <a (click)="setPage(pager.currentPage + 3)">...</a>
+          </li>
+          <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"> <a>Of</a></li>
+          <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+            <a (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages
+                | number}}</a>
+          </li>
+          <li *ngIf="pager.currentPage === pager.totalPages"> <a>Of</a></li>
+          <li *ngIf="pager.currentPage === pager.totalPages">
+            <a (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages
+                | number}}</a>
+          </li>
+          <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+            <a (click)="setPage(pager.currentPage + 1)" class="view-plan-details" class=" bd-color"
+               type="Next">
+              <i class="fa fa-angle-right top-set"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- ---------------Searched Results will Display here---------------------- -->
+
+<!--    <app-recentlysearch></app-recentlysearch>-->
+<!--    <app-recommendations></app-recommendations>-->
+  </div>
+</section>
+<!--<app-footer></app-footer>-->

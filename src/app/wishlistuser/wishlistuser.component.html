@@ -1,0 +1,461 @@
+
+  <section id="pageContent" class="page-content">
+    <div class="container-fluid sidebar-container">
+      <div class="row">
+        <div class="sidebar col-lg-2 col-md-2 col-sm-2 col-xs-12 clearfix">
+          <h3 class="sidebar-title font-additional font-weight-bold text-uppercase customColor ">
+            <i class="fas fa-heart icon"></i> My Wishlist
+          </h3>
+          <ul class="categories-tree ">
+            <li>
+              <a [routerLink]="['/profile']"class="font-additional font-weight-normal hover-focus-color color-third text-uppercase">
+                <i class="fas fa-user icon"></i>
+                <span  >Change Profile</span>
+              </a>
+            </li>
+            <li  *ngIf="sgflag['flag']!=true" >
+              <a [routerLink]="['/myshopnroar']" class="font-additional font-weight-normal hover-focus-color color-third text-uppercase active">
+                <i class="fas fa-heart icon"></i>
+                <span>My Wishlist</span>
+              </a>
+            </li>
+            <li  *ngIf="sgflag['flag']!=true">
+              <a [routerLink]="['/updatepassword']" class="font-additional font-weight-normal hover-focus-color color-third text-uppercase">
+                <i class="fas fa-key icon"></i>
+                <span >Change Password</span>
+              </a>
+            </li>
+            <li>
+              <a  (click)="logout()" style="cursor: pointer;" class="font-additional font-weight-normal hover-focus-color color-third text-uppercase">
+                <i class="fas fa-lock icon"></i>
+                <span>Logout</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+<!--        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 clearfix">-->
+<!--          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearfix stickyCategory">-->
+<!--            <h4 style="    font-family: Helvetica !important;" class="marginset" >You are viewing-->
+<!--              <span style="color: red"> Recently Liked Items </span>-->
+<!--            </h4>-->
+<!--            <div class="text-center">-->
+<!--              <nav>-->
+<!--                <ul *ngIf="pager.pages && pager.pages.length" class="pagination pagination-lg" style="margin-left: 35px;">-->
+<!--                  <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">-->
+<!--                    <a class="first-last" (click)="setPage(1)" aria-label="Previous" style=" border: none">-->
+<!--                      First-->
+<!--                    </a>-->
+<!--                  </li>-->
+<!--                  <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">-->
+<!--                    <a class="page-link" (click)="setPage(pager.currentPage - 1)" aria-label="Previous" style=" border: none">-->
+<!--                      <span aria-hidden="true">&laquo;</span>-->
+<!--                      <span class="sr-only">Previous</span>-->
+<!--                    </a>-->
+<!--                  </li>-->
+<!--                  <li class="page-item" *ngFor="let page of pager.pages"-->
+<!--                      [ngClass]="{active:pager.currentPage === page}"-->
+<!--                      (click)="setPage(page)"><a class="page-link" style=" border: none">{{page}}</a></li>-->
+<!--                  <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">-->
+<!--                    <a  style=" border: none; cursor: not-allowed">-->
+<!--                      <span aria-hidden="true">&hellip;</span>-->
+<!--                      &lt;!&ndash;<span class="sr-only">Next</span>&ndash;&gt;-->
+<!--                    </a>-->
+<!--                  </li>-->
+<!--                  <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">-->
+<!--                    <a class="page-link" (click)="setPage(pager.currentPage + 1)" aria-label="Next" style=" border: none">-->
+<!--                      <span aria-hidden="true">&raquo;</span>-->
+<!--                      <span class="sr-only">Next</span>-->
+<!--                    </a>-->
+<!--                  </li>-->
+<!--                  <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">-->
+<!--                    <a class="first-last" (click)="setPage(pager.totalPages)" aria-label="Next" style=" border: none">-->
+<!--                      Last-->
+<!--                    </a>-->
+<!--                  </li>-->
+<!--                </ul>-->
+<!--              </nav>-->
+<!--&lt;!&ndash;              <div class="category-filter clearfix " style="margin-top: -35px!important;">&ndash;&gt;-->
+<!--&lt;!&ndash;                <a *ngIf="gridview==true && listview==false" (click)="listviewfun()"   style="cursor: pointer !important;" class="pull-right grid-type hover-focus-border">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <span class="fa fa-list" style="padding: 23% !important;" aria-hidden="true"></span>&ndash;&gt;-->
+<!--&lt;!&ndash;                </a>&ndash;&gt;-->
+<!--&lt;!&ndash;                <a *ngIf="gridview==false && listview==true" (click)="listviewfun()"  style="cursor: pointer !important;" class="pull-right grid-type active customBgColor color-main">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <span class="icon-list" style="padding: 23% !important;" aria-hidden="true"></span>&ndash;&gt;-->
+<!--&lt;!&ndash;                </a>&ndash;&gt;-->
+<!--&lt;!&ndash;                <a *ngIf="gridview==true && listview==false" (click)="gridviewfun()" style="cursor: pointer !important;"   class="pull-right grid-type active customBgColor color-main">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <span class="fa fa-th" style="padding: 23% !important;" aria-hidden="true"></span>&ndash;&gt;-->
+<!--&lt;!&ndash;                </a>&ndash;&gt;-->
+<!--&lt;!&ndash;                <a *ngIf="gridview==false && listview==true" (click)="gridviewfun()"  style="cursor: pointer !important;" class="pull-right grid-type hover-focus-border">&ndash;&gt;-->
+<!--&lt;!&ndash;                  <span class="fa fa-list" style="padding: 23% !important;" aria-hidden="true"></span>&ndash;&gt;-->
+<!--&lt;!&ndash;                </a>&ndash;&gt;-->
+<!--&lt;!&ndash;              </div>&ndash;&gt;-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="content-box" style="margin-top:95px;">-->
+<!--            <div class="products-cat clearfix">-->
+<!--              &lt;!&ndash;<preloader-full></preloader-full>&ndash;&gt;-->
+<!--              <ul *ngIf="gridview==true && listview==false" class="products-grid">-->
+<!--                <li class="col-lg-3 col-md-4 col-sm-6 col-xs-12" style="padding: 0 5px" *ngFor="let item of products.results">-->
+<!--                  <div class="Category-products-grid" style="height: 340px!important;">-->
+<!--                    <div class="product-item hvr-underline-from-center">-->
+<!--                      <a href={{item.SNR_ProductURL}} target="_blank">-->
+<!--                        <div class="item-img">-->
+<!--                        <a href={{item.SNR_ProductURL}} target="_blank">-->
+<!--                        <<img *ngIf="item.SNR_ImageURL==null || item.SNR_ImageURL=='Not Available'" src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" style="max-width:90px;max-height:135px; width:auto;height:auto;" alt="Product Image">-->
+<!--                        <img *ngIf="item.SNR_ImageURL!=null && item.SNR_ImageURL!='Not Available' && item.SNR_Available=='Groupon' " src={{item.SNR_ImageURL}} style="max-width:150px;max-height:150px;" alt="Product Image">-->
+<!--                        <img *ngIf="item.SNR_ImageURL!=null && item.SNR_ImageURL!='Not Available' && item.SNR_Available!='Groupon'" src={{item.SNR_ImageURL}} style="max-width:150px;max-height:150px;" alt="Product Image">-->
+<!--                        </a>-->
+<!--                        </div>-->
+<!--                      <div class="category-name">-->
+<!--                        <a>{{item.SNR_Brand}}</a>-->
+<!--                        <h2>-->
+<!--                          {{item.SNR_Title}}-->
+<!--                        </h2>-->
+<!--                      </div>-->
+<!--                      <div class="Categories-logo">-->
+<!--                        <img _ngcontent-c12=""  src="https://storage.shopnroar.com/MerchantLogos/{{item.SNR_Available.toLowerCase()}}@60.png">-->
+<!--                      </div>-->
+<!--                      <div class="item-price">-->
+<!--                        <div class="price"><a class="discount-price">${{item.SNR_Price}}</a>-->
+<!--                        </div>-->
+<!--&lt;!&ndash;                        <div>  <a href="#">&ndash;&gt;-->
+<!--&lt;!&ndash;                          here put SVG&ndash;&gt;-->
+<!--&lt;!&ndash;                        </a></div>&ndash;&gt;-->
+<!--                      </div>-->
+<!--                      </a>-->
+<!--                      <div class="item-btns">-->
+<!--                        <button class="btn btn-shop-compare-cat catButton">Shop Now</button>-->
+<!--                        <button class="btn btn-shop-compare-cat catButton">Compare</button>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </li>-->
+<!--                <li class="helper-justify"></li>-->
+<!--              </ul>-->
+<!--              <ul *ngIf="gridview==false && listview==true" class="products-list">-->
+<!--                <li class="wow Category-products-list "  *ngFor="let item of products.results ">-->
+<!--                  <div class="product-list_item row">-->
+<!--                    <div class="product-list_item_img col-lg-4 col-md-4 col-sm-4 col-xs-12 clearfix">-->
+<!--                      <a  [routerLink]="['/details']" [queryParams]="{ Model: item.SNR_UPC, Name:item.SNR_Title  }">-->
+<!--                        <img *ngIf="item.SNR_ImageURL==null || item.SNR_ImageURL=='Not Available'" src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" style="max-width:240px;max-height:260px; width:auto;height:auto;" alt="Product Image">-->
+<!--                        <img *ngIf="item.SNR_ImageURL!=null && item.SNR_ImageURL!='Not Available' " src={{item.SNR_ImageURL}} style="max-width:240px;max-height:260px; width:auto;height:auto;" alt="Product Image">-->
+<!--                        <h4 style="color:black" class="text-center">-->
+<!--                          <a href={{item.SNR_ProductURL}}> <img *ngIf="item.SNR_Available=='Best Buy'"-->
+<!--                                                                src="https://storage.shopnroar.com/bestbuy.png"-->
+<!--                                                                style="padding-top: 20px;margin-left: -45px;width:39%;"/></a>-->
+<!--                          <a href={{item.SNR_ProductURL}}> <img *ngIf="item.SNR_Available=='Walmart'"-->
+<!--                                                                src="https://storage.shopnroar.com/Walmart.png"-->
+<!--                                                                style="padding-top: 20px;margin-left: -45px;width:51%"/></a>-->
+<!--                          <a href={{item.SNR_ProductURL}}> <img *ngIf="item.SNR_Available=='AT&T'"-->
+<!--                                                                src="https://storage.shopnroar.com/ATT.png"-->
+<!--                                                                style="padding-top: 20px;margin-left: -45px;width:120px;height:50px"/></a>-->
+<!--                          <a href={{item.SNR_ProductURL}}> <img *ngIf="item.SNR_Available=='Ebay'"-->
+<!--                                                                src="https://storage.shopnroar.com/EBay.png"-->
+<!--                                                                style="    padding-top: 20px;margin-left: -45px;width:50%"/> </a>-->
+<!--                          <a href={{item.SNR_ProductURL}}> <img *ngIf="item.SNR_Available=='Groupon'"-->
+<!--                                                                src="https://storage.shopnroar.com/groupon.png"-->
+<!--                                                                style="padding-top: 20px;margin-left: -45px;width:80%"/> </a>-->
+<!--                          <a href={{item.SNR_ProductURL}}> <img *ngIf="item.SNR_Available=='Amazon'"-->
+<!--                                                                src="https://storage.shopnroar.com/amazon.png"-->
+<!--                                                                style="padding-top: 20px;margin-left: -45px;width:76%"/></a>-->
+<!--                          <a href={{item.SNR_ProductURL}}> <img *ngIf="item.SNR_Available=='Newegg'"-->
+<!--                                                                src="https://storage.shopnroar.com/newegg.png"-->
+<!--                                                                style="padding-top: 20px;margin-left: -45px;width:40%"/></a>-->
+
+<!--                          <a href={{item.SNR_ProductURL}}> <img *ngIf="item.SNR_Available=='Frys'"-->
+<!--                                                                style="width:75%;"-->
+<!--                                                                src="https://storage.shopnroar.com/fry.png"-->
+<!--                          /></a>-->
+<!--                          <a href={{item.SNR_ProductURL}}> <img *ngIf="item.SNR_Available=='AppOutDoors'"-->
+<!--                                                                style="width:75%;"-->
+<!--                                                                src="https://storage.shopnroar.com/appoutdoors.png"-->
+<!--                          /></a>-->
+
+<!--                          <a href={{item.SNR_ProductURL}}> <img *ngIf="item.SNR_Available=='Verizon'"-->
+<!--                                                                style="width:50%;"-->
+<!--                                                                src="https://storage.shopnroar.com/verizon.png"-->
+<!--                          /></a>-->
+
+<!--                          <a href={{item.SNR_ProductURL}}> <img *ngIf="item.SNR_Available=='JCPENNEY'"-->
+<!--                                                                src="https://storage.shopnroar.com/jcpenny.png"-->
+<!--                          /></a>-->
+
+<!--                          <a href={{item.SNR_ProductURL}}> <img *ngIf="item.SNR_Available=='BuyDig'"-->
+<!--                                                                src="https://storage.shopnroar.com/buydig.png"-->
+<!--                          /></a>-->
+<!--                          <a href={{item.SNR_ProductURL}}> <img *ngIf="item.SNR_Available=='MACYS'"-->
+<!--                                                                src="https://storage.shopnroar.com/macyslogo.png"-->
+<!--                          /></a>-->
+<!--                          <a href={{item.SNR_ProductURL}}> <img *ngIf="item.SNR_Available=='BHPHOTOVIDEO'"-->
+<!--                                                                style="width:41%;"        src="https://storage.shopnroar.com/bh.png"-->
+<!--                          /></a>-->
+
+<!--                          <a href={{item.SNR_ProductURL}}> <img *ngIf="item.SNR_Available=='ISnorkel'"-->
+<!--                                                                style="width:75%;"         src="https://storage.shopnroar.com/isnorkel.jpg"-->
+<!--                          /></a>-->
+<!--                          <a href={{item.SNR_ProductURL}}> <img *ngIf="item.SNR_Available=='OldNavy'"-->
+<!--                                                                style="width:50%;"         src="https://storage.shopnroar.com/oldnavy.png"-->
+<!--                          /></a>-->
+<!--                          <a href={{item.SNR_ProductURL}}> <img *ngIf="item.SNR_Available=='BJS'"-->
+<!--                                                                style="width:30%;"         src="https://storage.shopnroar.com/bjs.jpg"-->
+<!--                          /></a>-->
+<!--                          <a href={{item.SNR_ProductURL}}> <img *ngIf="item.SNR_Available=='Sprint'"-->
+<!--                                                                style="width:30%;"         src="https://storage.shopnroar.com/sprint.png"-->
+<!--                          /></a>-->
+<!--                        </h4>-->
+<!--                      </a>-->
+<!--                    </div>-->
+<!--                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 clearfix">-->
+<!--                      <div class="product-list-info">-->
+<!--                        <div class="product-list_item_title">-->
+<!--                          <h3 style="color:#333;" class="font-additional font-weight-bold text-uppercase">{{item.SNR_Title}}</h3>-->
+<!--                        </div>-->
+<!--                        <div *ngIf="item.SNR_Price==0.000" class="product-item_price font-additional font-weight-normal customColor">visit site to see price<br><br></div>-->
+<!--                        <div *ngIf="item.SNR_Price!=0.000 " class="product-item_price font-additional font-weight-normal customColor">${{item.SNR_Price}}<br><br></div>-->
+<!--                        <div class="product-list_item_desc font-main font-weight-normal color-third">{{item.SNR_Description}}</div>-->
+<!--                        <div class=" product-item_footer" style="display: inline">-->
+<!--                          <a [routerLink]="['/details']" [queryParams]="{ Model: item.SNR_UPC, Name:item.SNR_Title   }" mat-raised-button class="btn button-additional font-additional font-weight-normal text-uppercase hvr-rectangle-out hover-focus-bg before-bg">-->
+<!--                            Compare-->
+<!--                          </a>-->
+<!--                          <a href={{item.SNR_ProductURL}} style="margin-left: 10px;" target="_blank" mat-raised-button class="btn button-additional font-additional font-weight-normal text-uppercase hvr-rectangle-out hover-focus-bg before-bg">-->
+<!--                            Shop Now-->
+<!--                          </a>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </li>-->
+<!--                <div class="text-center">-->
+<!--                </div>-->
+<!--              </ul>-->
+<!--              <div class="text-center">-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+
+
+
+
+        <div class="col-sm-10 grid-showlist">
+          <h1 class="showing-res" style="font-weight: bold">You are viewing:
+            <span class="result"  style="font-weight: bold">Recently Liked Items</span>
+          </h1>
+
+          <div class="row">
+<!--            <div class="col-sm-2 items-subcategory">-->
+<!--              <mat-select placeholder="Filters" [(ngModel)]="selectedOption" style="width: 70%;margin: 5px 0; font-size: 12px!important; font-weight: 600">-->
+<!--                <mat-option *ngFor="let c of options" [value]="c" (click)="onChangeOption(c)">{{c.name}}-->
+<!--                </mat-option>-->
+<!--              </mat-select>-->
+<!--            </div>-->
+            <div class="col-sm-8 items-subcategory" style="text-align: center">
+              <ul class="pagination" *ngIf="pager.pages && pager.pages.length">
+                <li [ngClass]="{hide:pager.currentPage === 1}">
+                  <a (click)="setPage(pager.currentPage - 1)" class="view-1s" class=" btn-fill">
+                    <i class="fa fa-angle-left"></i>
+                  </a>
+                </li>
+                <li [ngClass]="{hide:pager.currentPage <= 30}">
+                  <a (click)="setPage(pager.currentPage - 30)">...</a>
+                </li>
+                <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                  <a (click)="setPage(page)" class="view-plan-details">{{page | number}}</a>
+                </li>
+
+                <li [ngClass]="{hide:pager.currentPage === pager.totalPages}" *ngIf="(pager.startPage  + 3) <= pager.totalPages">
+                  <a (click)="setPage(pager.currentPage + 3)">...</a>
+                </li>
+                <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"> <a>Of</a></li>
+                <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                  <a (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages
+                    | number}}</a>
+                </li>
+                <li *ngIf="pager.currentPage === pager.totalPages"> <a>Of</a></li>
+                <li *ngIf="pager.currentPage === pager.totalPages">
+                  <a (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages
+                    | number}}</a>
+                </li>
+                <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                  <a (click)="setPage(pager.currentPage + 1)" class="view-plan-details" class=" bd-color"
+                     type="Next">
+                    <i class="fa fa-angle-right top-set"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+<!--            <div class="col-sm-2  items-subcategory">-->
+<!--              <mat-select placeholder="Filters" [(ngModel)]="selectedCount" style="font-weight: bold; font-size: 12px; width: 100%">-->
+<!--                <mat-option *ngFor="let c of countoptions" [value]="c" (click)="onChangeCount(c)">{{c.name}}-->
+<!--                </mat-option>-->
+<!--              </mat-select>-->
+<!--            </div>-->
+
+            <div class="col-sm-4 g items-subcategory" style="text-align: right">
+              <a *ngIf="gridview==true && listview==false" (click)="listviewfun()" style="cursor: pointer !important;"
+                 class="pull-right grid-type hover-focus-border">
+                <i class="fa fa-list-ul" style="vertical-align: middle;border: 1px solid black; width: 28px;height: 28px;margin-right: 5px;padding: 6px;"></i>
+              </a>
+              <a *ngIf="gridview==false && listview==true" (click)="listviewfun()" style="cursor: pointer !important;"
+                 class="pull-right grid-type active customBgColor color-main">
+                <i class="fa fa-list-ul" style="vertical-align: middle;border: 1px solid black; height: 28px;margin-right: 5px;padding: 6px;"></i>
+              </a>
+              <a *ngIf="gridview==true && listview==false" (click)="gridviewfun()" style="cursor: pointer !important;"
+                 class="pull-right grid-type active customBgColor color-main">
+                <i class="fa fa-th" style="vertical-align: middle;background-color: #cc0000 ;color: #FFFFFF;width: 28px;height: 28px;margin-right: 5px;padding: 6px;"></i>
+              </a>
+              <a *ngIf="gridview==false && listview==true" (click)="gridviewfun()" style="cursor: pointer !important;"
+                 class="pull-right grid-type hover-focus-border">
+                <i class="fa fa-th" style="vertical-align: middle;background-color: #cc0000 ;color: #FFFFFF;width: 28px;height: 28px;margin-right: 5px;padding: 6px;"></i>
+              </a>
+            </div>
+
+          </div>
+          <div class="search-content" *ngIf="gridview==true && listview==false">
+            <div class="item-show" *ngFor="let item of products.results">
+              <a [routerLink]="['/details']" [queryParams]="{ Model: item.SNR_SKU, Name:item.SNR_Title, ID:item.id  }">
+                <div class="item-img">
+                  <img src={{item.SNR_ImageURL}}>
+                </div>
+                <div class="category-name">
+                  <!-- <a>{{item.SNR_Brand}}</a> -->
+                  <h2>
+                    {{item.SNR_Title}}
+                  </h2>
+                </div>
+                <div class="Categories-logo">
+                  <img _ngcontent-c12=""  src="https://storage.shopnroar.com/MerchantLogos/{{item.SNR_Available.toLowerCase()}}@60.png">
+                </div>
+                <div class="item-price">
+                  <div class="price"><a class="discount-price">${{item.SNR_Price}}</a>
+                  </div>
+<!--                  <div>-->
+<!--                    <div class="progress-holder" *ngIf="item.SNR_CustomerReviews>=2.5 && item.SNR_CustomerReviews<5 ">-->
+<!--                      <round-progress class="small-progress" [current]="item.SNR_CustomerReviews" [max]="max" [color]="'#53c722'"-->
+<!--                                      [background]="'#eaeaea'" [radius]="100" [stroke]="20" [semicircle]="false" [rounded]="false"-->
+<!--                                      [clockwise]="true" [responsive]="false" [duration]="800" [animation]="'easeInOutQuart'"-->
+<!--                                      [animationDelay]="5" style="margin: auto">-->
+<!--                        <div class="inner-text-grid">{{(item.SNR_CustomerReviews/5)*100 | number : '1.0-0'}}%</div>-->
+<!--                      </round-progress>-->
+
+<!--                    </div>-->
+<!--                    <div class="progress-holder"  *ngIf="item.SNR_CustomerReviews<2.5 && item.SNR_CustomerReviews>=1  ">-->
+<!--                      <round-progress class="small-progress" [current]="item.SNR_CustomerReviews" [max]="max" [color]="'#ca260f'"-->
+<!--                                      [background]="'#eaeaea'" [radius]="100" [stroke]="20" [semicircle]="false" [rounded]="false"-->
+<!--                                      [clockwise]="true" [responsive]="false" [duration]="800" [animation]="'easeInOutQuart'"-->
+<!--                                      [animationDelay]="5" style="margin: auto">-->
+<!--                      </round-progress>-->
+<!--                      <div class="inner-text-grid">{{(item.SNR_CustomerReviews/5)*100 | number : '1.0-0'}}%</div>-->
+<!--                    </div>-->
+<!--                    <div class="progress-holder"  *ngIf="item.SNR_CustomerReviews==0">-->
+<!--                      <round-progress class="small-progress" [current]=3 [max]="max" [color]="'#9dca22'" [background]="'#eaeaea'"-->
+<!--                                      [radius]="100" [stroke]="20" [semicircle]="false" [rounded]="false" [clockwise]="true"-->
+<!--                                      [responsive]="false" [duration]="800" [animation]="'easeInOutQuart'" [animationDelay]="5"-->
+<!--                                      style="margin: auto">-->
+<!--                      </round-progress>-->
+<!--                      <div class="inner-text-grid">{{(3/5)*100 | number : '1.0-0'}}%</div>-->
+<!--                    </div>-->
+<!--                    <div class="progress-holder" s *ngIf="item.SNR_CustomerReviews==5  ">-->
+<!--                      <round-progress class="small-progress" [current]="item.SNR_CustomerReviews" [max]="max" [color]="'#53c722'"-->
+<!--                                      [background]="'#eaeaea'" [radius]="100" [stroke]="20" [semicircle]="false" [rounded]="false"-->
+<!--                                      [clockwise]="true" [responsive]="false" [duration]="800" [animation]="'easeInOutQuart'"-->
+<!--                                      [animationDelay]="5" style="margin: auto">-->
+<!--                      </round-progress>-->
+<!--                      <div class="inner-text-grid1">{{(item.SNR_CustomerReviews/5)*100 | number : '1.0-0'}}%</div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+                </div>
+              </a>
+              <div class="item-btns">
+                <a href={{item.SNR_ProductURL}} target="_blank"><button class="btn btn-shop-compare-cat catButton">Shop Now</button></a>
+                <a [routerLink]="['/details']" [queryParams]="{ Model: item.SNR_SKU, Name:item.SNR_Title, ID:item.id  }"><button class="btn btn-shop-compare-cat catButton">Compare</button></a>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="search-content" *ngIf="gridview==false && listview==true">
+
+            <!-- Start List View -->
+            <div class="list-view" *ngFor="let item of products.results">
+              <ul class="products-list">
+                <li class="row">
+                  <div class="product-list-img col-lg-3 col-md-3col-sm-3 col-xs-12">
+                    <a [routerLink]="['/details']" [queryParams]="{ Model: item.SNR_SKU, Name:item.SNR_Title, ID:item.id  }">
+                      <img src={{item.SNR_ImageURL}}>
+                    </a>
+                  </div>
+                  <div class="detail-box col-lg-5 col-md-6 col-sm-9 col-xs-12">
+                    <div class="info">
+                      <a [routerLink]="['/details']" [queryParams]="{ Model: item.SNR_SKU, Name:item.SNR_Title, ID:item.id  }">
+                        <!-- <h3>{{item.SNR_Brand}}</h3> -->
+                        <a [routerLink]="['/details']" [queryParams]="{ Model: item.SNR_SKU, Name:item.SNR_Title, ID:item.id  }">
+                          <img _ngcontent-c12=""  src="https://storage.shopnroar.com/MerchantLogos/{{item.SNR_Available.toLowerCase()}}@60.png">
+                        </a>
+                        <h4>{{item.SNR_Title}}</h4>
+                        <div style="font-size: 25px; color: #cc0000">${{item.SNR_Price}}</div>
+                        <!--                  <p>{{item.SNR_Description}}</p>-->
+                      </a>
+                      <div class="text-left">
+                        <a href={{item.SNR_ProductURL}} target="_blank"><button class="btn btn-shop-compare-cat catButton">Shop Now</button></a>
+                        <a [routerLink]="['/details']" [queryParams]="{ Model: item.SNR_SKU, Name:item.SNR_Title, ID:item.id  }" ><button class="btn btn-shop-compare-cat catButton">Compare</button></a>
+                      </div>
+                    </div>
+                  </div>
+<!--                  <div class="detail-box col-lg-3 col-md-3 col-sm-9 col-xs-12">-->
+<!--                    <div class="progress-holder" style="float: right" *ngIf="item.SNR_CustomerReviews>=2.5 && item.SNR_CustomerReviews<5 ">-->
+<!--                      <round-progress class="list-progess-bar" [current]="item.SNR_CustomerReviews" [max]="max" [color]="'#53c722'"-->
+<!--                                      [background]="'#eaeaea'" [radius]="100" [stroke]="20" [semicircle]="false" [rounded]="false"-->
+<!--                                      [clockwise]="true" [responsive]="false" [duration]="800" [animation]="'easeInOutQuart'"-->
+<!--                                      [animationDelay]="5" style="margin: auto">-->
+<!--                      </round-progress>-->
+<!--                      <div class="inner-text-grid2">{{(item.SNR_CustomerReviews/5)*100 | number : '1.0-0'}}%</div>-->
+<!--                    </div>-->
+<!--                    <div class="progress-holder" style="float: right" *ngIf="item.SNR_CustomerReviews<2.5 && item.SNR_CustomerReviews>=1  ">-->
+<!--                      <round-progress class="list-progess-bar" [current]="item.SNR_CustomerReviews" [max]="max" [color]="'#ca260f'"-->
+<!--                                      [background]="'#eaeaea'" [radius]="100" [stroke]="20" [semicircle]="false" [rounded]="false"-->
+<!--                                      [clockwise]="true" [responsive]="false" [duration]="800" [animation]="'easeInOutQuart'"-->
+<!--                                      [animationDelay]="5" style="margin: auto">-->
+<!--                      </round-progress>-->
+<!--                      <div class="inner-text-grid2">{{(item.SNR_CustomerReviews/5)*100 | number : '1.0-0'}}%</div>-->
+<!--                    </div>-->
+<!--                    <div class="progress-holder" style="float: right" *ngIf="item.SNR_CustomerReviews==0">-->
+<!--                      <round-progress class="list-progess-bar" [current]=3 [max]="max" [color]="'#9dca22'" [background]="'#eaeaea'"-->
+<!--                                      [radius]="100" [stroke]="20" [semicircle]="false" [rounded]="false" [clockwise]="true"-->
+<!--                                      [responsive]="false" [duration]="800" [animation]="'easeInOutQuart'" [animationDelay]="5"-->
+<!--                                      style="margin: auto">-->
+<!--                      </round-progress>-->
+<!--                      <div class="inner-text-grid2">{{(3/5)*100 | number : '1.0-0'}}%</div>-->
+<!--                    </div>-->
+<!--                    <div class="progress-holder" style="float: right" *ngIf="item.SNR_CustomerReviews==5  ">-->
+<!--                      <round-progress class="list-progess-bar" [current]="item.SNR_CustomerReviews" [max]="max" [color]="'#53c722'"-->
+<!--                                      [background]="'#eaeaea'" [radius]="100" [stroke]="20" [semicircle]="false" [rounded]="false"-->
+<!--                                      [clockwise]="true" [responsive]="false" [duration]="800" [animation]="'easeInOutQuart'"-->
+<!--                                      [animationDelay]="5" style="margin: auto">-->
+<!--                      </round-progress>-->
+<!--                      <div class="inner-text-grid1">{{(item.SNR_CustomerReviews/5)*100 | number : '1.0-0'}}%</div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+                </li>
+              </ul>
+            </div>
+
+            <!-- End List View -->
+          </div>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </section>
+<!--  <app-footer></app-footer>-->

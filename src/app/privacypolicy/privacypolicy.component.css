@@ -1,0 +1,28 @@
+
+#ppHeader
+{
+  font-size:21pt;
+  width:100%;
+  margin:0 auto;
+}
+
+.innerText{
+  color: #000;
+}
+strong {
+  font-weight: 700;
+  color:#ed2424;
+}
+.font-body{
+  font-family:"Helvetica" !important;
+}
+.terms-condition-wrapper{
+  box-shadow: 0 1px 1px 1px #888;
+  padding: 0 30px!important;
+  margin: 30px auto;
+  border-radius: 5px;
+  background: #fff;
+}
+.font-body{
+  background: #FAFAFA;
+}

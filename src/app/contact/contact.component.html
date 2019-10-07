@@ -1,0 +1,312 @@
+  <!--<preloader-full></preloader-full>-->
+  <!--<br>-->
+  <!--<div id="wrapper">-->
+    <!--<div class="main">-->
+      <!--<div class="container-fluid">-->
+        <!--<div class="row">-->
+          <!--<div class="col-md-12">-->
+            <!--<h3 class="sidebar-title font-additional font-weight-bold text-uppercase customColor " style="color:#e31b1d ;">Feedback</h3>-->
+            <!--<div class="row row-lg">-->
+              <!--<form (ngSubmit)="f.form.valid && Recaptcha && sendfeedback()" #f="ngForm" novalidate>-->
+                <!--<div class="col-sm-6 text-center">-->
+                  <!--<div class="form-group mb30 label-overlay">-->
+                    <!--<input type="text" class="form-control"-->
+                      <!--pattern="^([a-zA-Z]+[,.]?[ ]?|[a-z]+['-]?)+$" name="full_name" [(ngModel)]="model.full_name"-->
+                      <!--#full_name="ngModel"-->
+                      <!--placeholder="Name*" required>-->
+                  <!--</div>&lt;!&ndash; End .form-group &ndash;&gt;-->
+                  <!--<div *ngIf="f.submitted &&flaag==false && full_name.errors " class="help-block" style="margin-bottom: 35px!important; margin-top: -30px!important;">-->
+                    <!--Name is required-->
+                  <!--</div>-->
+                  <!--<div class="form-group mb30 label-overlay">-->
+                    <!--<input type="email" placeholder="Email*"-->
+                     <!--pattern="^(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)" name="email"-->
+                     <!--[(ngModel)]="model.email" #email="ngModel"-->
+                     <!--class="form-control" required>-->
+                  <!--</div>&lt;!&ndash; End .form-group &ndash;&gt;-->
+                  <!--<div *ngIf="f.submitted &&flaag==false&& email.errors  && !email.valid" class="help-block" style="margin-bottom: 35px!important; margin-top: -30px!important;">-->
+                    <!--Email is invalid-->
+                  <!--</div>-->
+                  <!--<div class="form-group mb30 label-overlay">-->
+                    <!--<input type="text" placeholder="Subject*"-->
+                     <!--pattern="^([a-zA-Z]+[,.]?[ ]?|[a-z]+['-]?)+$" name="subject" [(ngModel)]="model.subject"-->
+                     <!--#subject="ngModel" required-->
+                     <!--class="form-control">-->
+                  <!--</div>&lt;!&ndash; End .form-group &ndash;&gt;-->
+                  <!--<div *ngIf="f.submitted  &&flaag==false && subject.errors " class="help-block" style="margin-bottom: 35px!important; margin-top: -30px!important;">-->
+                    <!--Subject is required-->
+                  <!--</div>-->
+                <!--</div>&lt;!&ndash; End .col-sm-6 &ndash;&gt;-->
+                <!--<div class="col-sm-6">-->
+                  <!--<div class="form-group textarea-group mb30 label-overlay">-->
+                    <!--<textarea cols="30" rows="5" placeholder="Write your feedback*"-->
+                      <!--name="feedback" [(ngModel)]="model.feedback"-->
+                      <!--#feedback="ngModel" required maxlength="500"-->
+                      <!--class="form-control min-height" required></textarea>-->
+                  <!--</div>&lt;!&ndash; End .form-group &ndash;&gt;-->
+                  <!--<div *ngIf="f.submitted &&flaag==false  && feedback.errors " class="help-block" style="margin-bottom: 35px!important; margin-top: -30px!important;">-->
+                    <!--Feedback is required-->
+                  <!--</div>-->
+                  <!--<div *ngIf="flaag== true " class="help-block" style="margin-bottom: 35px!important; margin-top: -30px!important;">-->
+                    <!--Thanks. We will contact you soon-->
+                  <!--</div>-->
+                  <!--<blackgeeks-recaptcha></blackgeeks-recaptcha>-->
+                  <!--<button type="submit" style="margin-left:74%; " class="btn button-additional font-additional font-weight-normal text-uppercase hvr-rectangle-out hover-focus-bg before-bg">-->
+                    <!--Submit-->
+                  <!--</button>-->
+                <!--</div>&lt;!&ndash; End .col-sm-6 &ndash;&gt;-->
+              <!--</form>-->
+            <!--</div>&lt;!&ndash; End .row &ndash;&gt;-->
+            <!--<br><br><br>-->
+
+            <!--<div class="col-md-8">-->
+              <!--<iframe width="100%" height="350" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=5050%20Quorum%20Drive%20Suite%20700%20Dallas%2C%20TX%2075254&key=AIzaSyBcVkwSRC2BW9c3FsFmhM61fM1c3goI9_4" allowfullscreen></iframe>-->
+            <!--</div>-->
+
+            <!--<div class="contact-infos-wrapper">-->
+              <!--<div class="row">-->
+                <!--<div class="col-sm-4 contact-info-container">-->
+                  <!--<div class="contact-info">-->
+                    <!--<i class="icon contact-icon contact-pin"></i>-->
+                    <!--<div class="contact-info-meta">-->
+                      <!--<h3 class="sidebar-title font-additional font-weight-bold text-uppercase customColor " data-wow-delay="0.3s">-->
+                        <!--<b>Headquarters</b>-->
+                      <!--</h3>-->
+                      <!--<address class="font-larger">-->
+                        <!--5050 Quorum Drive, Suite 700, Dallas, TX 75254                                              </address>-->
+                    <!--</div>&lt;!&ndash; end .contact-info-meta &ndash;&gt;-->
+                  <!--</div>&lt;!&ndash; End .contact-info &ndash;&gt;-->
+                <!--</div>&lt;!&ndash; End .col-sm-4 &ndash;&gt;-->
+                <!--<div class="col-sm-4 contact-info-container">-->
+                  <!--<div class="contact-info">-->
+                    <!--<i class="icon contact-icon contact-email"></i>-->
+                    <!--<div class="contact-info-meta">-->
+                      <!--<h3 class="sidebar-title font-additional font-weight-bold text-uppercase customColor " data-wow-delay="0.3s">-->
+                        <!--<b>ESTABLISH CONTACT </b>-->
+                      <!--</h3>-->
+                      <!--<ul class="font-larger">-->
+                        <!--<li>-->
+                          <!--<span>-->
+                            <!--<b>Email:</b>-->
+                          <!--</span>-->
+                          <!--<a href="mailto:#">contact@shopnroar.com</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                          <!--<span>-->
+                            <!--<b>Phone:</b>-->
+                          <!--</span> +1 (888) 764-0100-->
+                        <!--</li>-->
+                        <!--<li>-->
+                          <!--<span>-->
+                            <!--<b>Fax:</b>-->
+                          <!--</span> +1 (469) 250-6600-->
+                        <!--</li>-->
+                      <!--</ul>-->
+                    <!--</div>&lt;!&ndash; end .contact-info-meta &ndash;&gt;-->
+                  <!--</div>&lt;!&ndash; End .contact-info &ndash;&gt;-->
+                <!--</div>&lt;!&ndash; End .col-sm-4 &ndash;&gt;-->
+                <!--<div class="col-sm-4 contact-info-container">-->
+                  <!--<div class="contact-info">-->
+                    <!--<i class="icon contact-icon contact-phone"></i>-->
+                    <!--<div class="contact-info-meta">-->
+                      <!--<h3 class="sidebar-title font-additional font-weight-bold text-uppercase customColor " data-wow-delay="0.3s">-->
+                        <!--<b>Contact Us</b>-->
+                      <!--</h3>-->
+                      <!--<ul class="font-larger">-->
+                        <!--<li>-->
+                          <!--<span>-->
+                            <!--<b>Phone:</b>-->
+                          <!--</span>+1 (888) 764-0100-->
+                        <!--</li>-->
+                        <!--<li>-->
+                          <!--<span>-->
+                            <!--<b>Fax:</b>-->
+                          <!--</span>+1 (469) 250-6600-->
+                        <!--</li>-->
+                      <!--</ul>-->
+                    <!--</div>&lt;!&ndash; end .contact-info-meta &ndash;&gt;-->
+                  <!--</div>&lt;!&ndash; End .contact-info &ndash;&gt;-->
+                <!--</div>&lt;!&ndash; End .col-sm-4 &ndash;&gt;-->
+              <!--</div>&lt;!&ndash; End .row &ndash;&gt;-->
+            <!--</div>&lt;!&ndash; End .contact-infos-wrapper &ndash;&gt;-->
+          <!--</div>&lt;!&ndash; End .col-md-9 &ndash;&gt;-->
+          <!--<div class="mb80 mb70-xs visible-sm visible-xs"></div>&lt;!&ndash; margin &ndash;&gt;-->
+          <!--&lt;!&ndash;<aside class="col-md-3 sidebar"></aside>&ndash;&gt;-->
+        <!--</div>&lt;!&ndash; End .row &ndash;&gt;-->
+      <!--</div>&lt;!&ndash; End .container-fluid &ndash;&gt;-->
+      <!--<div class="mb90 visible-md visible-lg"></div>&lt;!&ndash; margin &ndash;&gt;-->
+    <!--</div>&lt;!&ndash; End .main &ndash;&gt;-->
+  <!--</div>&lt;!&ndash; End #wrapper &ndash;&gt;-->
+  <!--<app-footer></app-footer>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <section id="contact">
+    <div class="section-content">
+      <h1 class="section-header"><span class="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s"> Contact Us</span></h1>
+      <!-- <p>If you feel any kind of queries Please feel free to contact with Us. Just leave a Message, Our customer support person will contact you</p> -->
+    </div>
+    <div class="contact-section">
+      <div class="container">
+        <!--<form name="form" role="form" (ngSubmit)="f.form.valid && Recaptcha && sendfeedback(name.value, email.value,subject.value, message.value)" id="contact_form"-->
+              <!--#f="ngForm" novalidate>-->
+          <!--<div class="row">-->
+            <!--<div class="col-md-6 form-line">-->
+              <!--<div class="form-group">-->
+                <!--<label>Your name</label>-->
+                <!--<input type="text" class="form-control" pattern="^([a-zA-Z]+[,.]?[ ]?|[a-z]+['-]?)+$" name="name" placeholder=" Enter Your Name"  [(ngModel)]="model.name" #Name="ngModel" #name-->
+                       <!--required >-->
+              <!--</div>-->
+              <!--<div *ngIf="f.submitted &&flaag==false && name.errors " class="help-block" style="margin-bottom: 35px!important; margin-top: -30px!important;">-->
+                <!--Name is required-->
+              <!--</div>-->
+              <!--<div class="form-group">-->
+                <!--<label>Email Address</label>-->
+                <!--<input type="email" class="form-control" name="email" placeholder=" Enter Your Email" [(ngModel)]="model.email" #Email="ngModel" #email-->
+                       <!--required >-->
+              <!--</div>-->
+              <!--<div class="form-group">-->
+                <!--<label>Subject</label>-->
+                <!--<input type="tel" class="form-control" name="subject" placeholder=" Enter Your Subject" [(ngModel)]="model.subject" #Telephone="ngModel" #subject-->
+                       <!--required >-->
+              <!--</div>-->
+              <!--<blackgeeks-recaptcha></blackgeeks-recaptcha>-->
+              <!--<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !captcha}">-->
+                <!--&lt;!&ndash;<re-captcha (resolved)="resolved($event)" siteKey="6LcMeE4UAAAAAORPbOfwjGczzxsz843f24BA92IN"></re-captcha>&ndash;&gt;-->
+                <!--<div *ngIf="f.submitted && !captcha" class="help-block">ReCaptcha is required</div>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-md-6">-->
+              <!--<div class="form-group">-->
+                <!--<label> Message</label>-->
+                <!--<textarea class="form-control" name="message" placeholder="Enter Your Message" [(ngModel)]="model.message" #Message="ngModel" #message-->
+                          <!--required > </textarea>-->
+              <!--</div>-->
+              <!--<div>-->
+                <!--<button type="submit" class="btn btn-default submit">Send Message</button>-->
+                <!--&lt;!&ndash;<i class="fa fa-paper-plane" aria-hidden="true"></i>&ndash;&gt;-->
+              <!--</div>-->
+
+            <!--</div>-->
+          <!--</div>-->
+
+        <!--</form>-->
+        <form class="ng-untouched ng-pristine ng-valid contact-us-form"
+              (ngSubmit)="!userFormControl.hasError('required') && !emailFormControl.hasError('required') && !emailFormControl.hasError('pattern')
+               && sendfeedback()" #f="ngForm" novalidate>
+          <div class="card">
+            <!-- <div class="card-header text-center" data-background-color="rose">
+            </div> -->
+            <div class="card-content">
+              <div class="col-md-6 col-sm-6">
+              <mat-form-field class="example-full-width mat-size">
+                <input class="conatct-us-input" matInput placeholder="Name"  tabindex=1 [formControl]="userFormControl" [(ngModel)]="model.name" required>
+                <span class="pointer" *ngIf="model.name"  matSuffix mat-icon-button aria-label="Clear" (click)="model.name=''">
+                  <mat-icon>close</mat-icon>
+                </span>
+                <mat-error *ngIf="userFormControl.hasError('required')">
+                  Name is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field class="example-full-width mat-size">
+                <input class="conatct-us-input" matInput type="text"  placeholder=" Email " tabindex="2" [formControl]="emailFormControl" [(ngModel)]="model.email" autocomplete="off" required>
+                <span class="pointer" *ngIf="model.email" tabindex=-11 mat-icon-button matSuffix aria-label="Clear" (click)="model.email=''">
+              <mat-icon>close</mat-icon>
+            </span>
+                <mat-error *ngIf="emailFormControl.hasError('pattern')">
+                  Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="emailFormControl.hasError('required')">
+                  Email is <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="emailFormControl.hasError('maxlength')">
+                  Maximum Length of <strong>Email can be 100 characters</strong>
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field class="example-full-width mat-size">
+                <input class="conatct-us-input" matInput placeholder="Subject"  tabindex=3 [formControl]="userFormControl" [(ngModel)]="model.subject" required>
+                <span class="pointer" *ngIf="model.subject"  matSuffix mat-icon-button aria-label="Clear" (click)="model.subject=''">
+                  <mat-icon>close</mat-icon>
+                </span>
+                <mat-error *ngIf="userFormControl.hasError('required')">
+                  Subject is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <mat-form-field class="example-full-width mat-size">
+                <textarea class="contact-us-text-area" rows="5" matInput placeholder="Message"  tabindex=4 [formControl]="userFormControl" [(ngModel)]="model.feedback" required></textarea>
+                <span class="pointer" *ngIf="model.feedback"  matSuffix mat-icon-button aria-label="Clear" (click)="model.feedback=''">
+                  <mat-icon>close</mat-icon>
+                </span>
+                <mat-error *ngIf="userFormControl.hasError('required')">
+                  Message is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+              <div class="recaptcha">
+              <app-recapcha></app-recapcha>
+            </div>
+              <button type="submit" class=" btn contact-button">
+                  Send Message
+                </button>
+            </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12" >
+<!--              <div class="col-lg-6 col-md-6 col-sm-12 form-group text-center" [ngClass]="{ 'has-error':!Recaptcha}">-->
+<!--              <app-recapcha></app-recapcha>-->
+<!--                <div *ngIf="!Recaptcha" class="help-block">ReCaptcha is required</div>-->
+<!--              </div>-->
+              <div class="col-lg-6 col-md-6 col-sm-12">
+             <!-- <button type="submit" style="margin-left:30%; margin-top: 50px; border-radius: 18px; width: 250px " class="btn button-additional font-additional font-weight-normal text-uppercase hvr-rectangle-out hover-focus-bg before-bg">
+                Submit
+              </button> -->
+            </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact-map">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8">
+          <iframe width="100%" height="350" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=5050%20Quorum%20Drive%20Suite%20700%20Dallas%2C%20TX%2075254&key=AIzaSyBcVkwSRC2BW9c3FsFmhM61fM1c3goI9_4" allowfullscreen></iframe>
+          <!--<iframe width="100%" height="350"  frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ_-lLvVkEGTkRrW7cA6sQDQI&key=AIzaSyAJraHLW7X1VjgYXaicDSHmwdJMza1Vbfw" allowfullscreen></iframe>-->
+        </div>
+        <div class="col-md-4">
+          <div class="contact-address">
+            <h2 style="color: BLACK; font-weight: bold">ShopNRoar</h2>
+            <h5 style="line-height: 0px; color: black; font-weight: bold">5050 Quorum Drive Ste 700 Dallas TX 75254
+            </h5>
+            <h2 style="color: black; font-weight: bold; margin: 0">Establish Contact</h2>
+
+            <h5 class="phone-contact" style="font-weight: bold; color: black; line-height: 0; margin: 0">
+              <br/>
+              <i class="fa fa-envelope-o"></i><span style="color: black; font-weight: bold"> Email: </span>    contact AT shopnroar DOT com<br>
+              <!-- <i class="fa fa-fax"></i><span style="color: black; font-weight: bold"> Fax: </span> +1 (469) 250-6600<br> -->
+              <i class="fa fa-phone"></i><span style="color: black; font-weight: bold">Phone No. </span> +1-214-302-7330<br>
+              <!--<i class="fa fa-fax"></i> <span>Fax: </span>            +1 (469) 250-6600-->
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ======== @Region: #content-below ======== -->

@@ -1,0 +1,73 @@
+  <section id="pageContent" class="page-content" style="margin-top: 2%;">
+    <h1 class="catagerios-page-heading">All Categories</h1>
+    <hr style="color: lightgrey; font-size: 2px">
+    <div class="container-fluid" style="margin-top: 15px;">
+      <div class="row">
+        <ul *ngIf="getProducts_Sub.length!=0">
+          <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12" style=" background-color:#f7f7f7; width: 31%;margin-right: 1%">
+            <li class="wrap-text-ellipse" *ngFor="let item of getProducts_Sub.slice(0,getProducts_Sub.length/3)" [routerLink]="['/view',item.id]" [queryParams]="{CatName: item.Category}">
+              <a style="cursor: pointer; font-weight: bold" *ngIf="item=='Uncategorized'"  class="SubCategory-Text"><span><img class="catleftimages" src="../../assets/images/CatImages/{{item}}.png"> Others</span></a>
+              <a style="cursor: pointer; font-weight: bold" *ngIf="item!='Uncategorized'"  class="SubCategory-Text"><img class="catleftimages"  src="../../assets/images/CatImages/{{item.Category}}.png"><span class="items">{{item.Category}}</span></a>
+            </li>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"style=" background-color:#f7f7f7; width: 31%;margin-right: 1%">
+            <li class="wrap-text-ellipse" *ngFor="let item of getProducts_Sub.slice(getProducts_Sub.length/3,getProducts_Sub.length/3+getProducts_Sub.length/3)" [routerLink]="['/view',item.id]" [queryParams]="{CatName: item.Category}">
+              <a style="cursor: pointer;font-weight: bold" *ngIf="item=='Uncategorized'"  class="SubCategory-Text"><span><img class="catleftimages" src="../../assets/images/CatImages/{{item}}.png"> Others</span></a>
+              <a style="cursor: pointer; font-weight: bold" *ngIf="item!='Uncategorized'"  class="SubCategory-Text"><img class="catleftimages"  src="../../assets/images/CatImages/{{item.Category}}.png"> {{item.Category}}</a>
+            </li>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"style=" background-color:#f7f7f7; width: 31%;margin-right: 1%">
+            <li class="wrap-text-ellipse" *ngFor="let item of getProducts_Sub.slice(getProducts_Sub.length/3+getProducts_Sub.length/3,getProducts_Sub.length)" [routerLink]="['/view',item.id]" [queryParams]="{CatName: item.Category}">
+              <a style="cursor: pointer; font-weight: bold" *ngIf="item=='Uncategorized'"  class="SubCategory-Text"><span><img class="catleftimages" src="../../assets/images/CatImages/{{item}}.png"> Others</span></a>
+              <a style="cursor: pointer; font-weight: bold" *ngIf="item!='Uncategorized'"  class="SubCategory-Text"><img class="catleftimages"  src="../../assets/images/CatImages/{{item.Category}}.png">{{item.Category}}</a>
+            </li>
+          </div>
+        </ul>
+      </div>
+    </div>
+    <h1 style="margin-top: 10px">Detailed Categories</h1>
+    <hr style="color: lightgrey; font-size: 2px">
+    <div class="container-fluid" style="margin-top: 15px">
+      <div class="row">
+        <ul *ngIf="getProducts_Sub.length!=0">
+          <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 ">
+            <li class="wrap-text-ellipse" id="subCat" *ngFor="let item of getProducts_Sub.slice(0,getProducts_Sub.length/3)">
+              <span ><img class="catleftimages" style="width: 50%; height: auto;" src="../../assets/images/SubCatImages/{{item.Category}}.jpg"></span><br>
+              <a style="text-align: left;text-decoration: underline;font-weight: bold;font-size: 20px" *ngIf="item=='Uncategorized'"  class="SubCategory-Text"><span><img class="catleftimages" src="../../assets/images/CatImages/{{item}}.png"> Others</span></a>
+              <a style="text-align: left;text-decoration: underline;font-weight: bold;font-size: 20px" *ngIf="item!='Uncategorized'"  class="SubCategory-Text">
+                <span>{{item.Category}}</span>
+              </a>
+              <br>
+              <div style="cursor: pointer; font-size: 15px; color: #5a5a5a; margin-left: 5px" *ngFor="let item1 of item.SubCategories.slice(0,getProducts_Sub.length/1)" [routerLink]="['/subcategory', item.id,item1.id]" [queryParams]="{CatName:item1.SubCat}"   class="SubCategory-Text row">
+                <span>{{item1.SubCat}}</span>
+              </div>
+            </li>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+            <li class="wrap-text-ellipse" id="subCat" *ngFor="let item of getProducts_Sub.slice(getProducts_Sub.length/3,getProducts_Sub.length/3+getProducts_Sub.length/3)">
+              <span><img class="catleftimages center" style="width: 50%; height: auto;" src="../../assets/images/SubCatImages/{{item.Category}}.jpg"></span><br>
+              <a style="text-align: left;text-decoration: underline;font-weight: bold;font-size: 20px" *ngIf="item=='Uncategorized'"  class="SubCategory-Text"><span><img class="catleftimages" src="../../assets/images/CatImages/{{item}}.png"> Others</span></a>
+              <a style="text-align: left;text-decoration: underline;font-weight: bold;font-size: 20px" *ngIf="item!='Uncategorized'"  class="SubCategory-Text"><span> {{item.Category}}</span></a>
+              <div style="cursor: pointer; font-size: 15px; color: #5a5a5a; margin-left: 5px" *ngFor="let item1 of item.SubCategories.slice(0,getProducts_Sub.length/1)" [routerLink]="['/subcategory', item.id,item1.id]" [queryParams]="{CatName:item1.SubCat}" class="SubCategory-Text row">
+                <span>{{item1.SubCat}}</span>
+              </div>
+            </li>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+            <li class="wrap-text-ellipse" id="subCat" *ngFor="let item of getProducts_Sub.slice(getProducts_Sub.length/3+getProducts_Sub.length/3,getProducts_Sub.length)">
+              <span><img class="catleftimages center" style="width: 50%; height: auto;" src="../../assets/images/SubCatImages/{{item.Category}}.jpg"></span><br>
+              <a style="text-align: left;text-decoration: underline;font-weight: bold;font-size: 20px" *ngIf="item=='Uncategorized'"  class="SubCategory-Text"><span><img class="catleftimages" src="../../assets/images/CatImages/{{item}}.png"> Others</span></a>
+              <a style="text-align: left;text-decoration: underline;font-weight: bold;font-size: 20px" *ngIf="item!='Uncategorized'"  class="SubCategory-Text"><span>{{item.Category}}</span></a>
+              <br>
+              <div style="cursor: pointer; font-size: 15px; color: #5a5a5a; margin-left: 5px" *ngFor="let item1 of item.SubCategories.slice(0,getProducts_Sub.length/1)" [routerLink]="['/subcategory', item.id,item1.id]" [queryParams]="{CatName:item1.SubCat}"  class="SubCategory-Text row">
+                <span [routerLink]="['/subcategory', item.id,item1.id]" [queryParams]="{CatName:item1.SubCat}">{{item1.SubCat}}</span>
+              </div>
+            </li>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </section>
+<!--  <app-footer></app-footer>-->
+
+
