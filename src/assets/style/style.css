@@ -4,6 +4,7 @@ body{
 }
 .router-outlet-mg{
     min-height: 90vh;
+    margin-top: 70px;
 }
 .megamenu>li>ul>li,
 li,
@@ -843,9 +844,6 @@ display: none;
 .menu-block-1 a:hover{
     color: #ed2424 !important;
     transition: 0.2s ease-in-out all;
-}
-.router-outlet-mg{
-    margin-top: 70px;
 }
 .cat-ul-center >ul >li >a{
     color: #fff;
