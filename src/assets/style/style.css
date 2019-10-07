@@ -2,6 +2,9 @@
 body{
     font-family: Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif!important;
 }
+.router-outlet-mg{
+    min-height: 90vh;
+}
 .megamenu>li>ul>li,
 li,
 ol,

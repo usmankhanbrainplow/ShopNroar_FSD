@@ -4,7 +4,7 @@
 }
 
 .footer-nav li a{
-  font-size: 18px;
+  font-size: 17px;
   /*font-weight: bold;*/
 }
 .footer-upper {
@@ -15,7 +15,7 @@
 }
 
 .footer-upper .container-fluid {
-  padding: 0 50px;
+  padding: 10px 50px 20px;
 }
 
 .footer-align {

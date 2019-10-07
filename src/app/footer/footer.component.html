@@ -74,37 +74,39 @@
             <div class="row">
               <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
                 <ul class="footer-nav">
-                  <!-- <li *ngFor="let slide of AllCategories.slice(0,10)" (click)="CategoryNavigation(slide.id, slide.Category)" style="cursor:pointer; font-weight: bold">
+                  <li *ngFor="let slide of AllCategories.slice(0,10)" (click)="CategoryNavigation(slide.id, slide.Category)" style="cursor:pointer; font-weight: bold">
                     <a class="font-main font-weight-normal color-additional">
                       <span>
                     <img class="catleftimages" src="../../assets/images/CatImages/{{slide.Category}}.png"></span>
  
                        {{slide.Category}}
                     </a>
-                  </li> -->
+                  </li>
                 </ul>
               </div>
-              <!--                <div class="col-md-4 col-lg-4 col-sm-6  col-xs-12">-->
-              <!--                  <ul class="footer-nav">-->
-              <!--                    <li *ngFor="let slide of AllCategories.slice(8,14)" (click)="CategoryNavigation(slide.id, slide.Category)"  style="cursor:pointer">-->
-              <!--                      <a class="font-main font-weight-normal color-additional">-->
-              <!--                        <i class="fa fa-angle-right customColor"></i>{{slide.Category}}-->
-              <!--                      </a>-->
-              <!--                    </li>-->
-              <!--                  </ul>-->
-              <!--                </div>-->
               <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                <ul class="footer-nav">
+                  <li *ngFor="let slide of AllCategories.slice(8,14)" (click)="CategoryNavigation(slide.id, slide.Category)"  style="cursor:pointer; font-weight: bold">
+                    <a class="font-main font-weight-normal color-additional">
+                        <span>
+                            <img class="catleftimages" src="../../assets/images/CatImages/{{slide.Category}}.png"></span>
+                            
+                            {{slide.Category}}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
                 <ul class="footer-nav">
                   <li *ngFor="let slide of AllCategories.slice(11,21)" (click)="CategoryNavigation(slide.id, slide.Category)"  style="cursor:pointer; font-weight: bold">
                     <a class="font-main font-weight-normal color-additional">
                        <span>
                     <img class="catleftimages" src="../../assets/images/CatImages/{{slide.Category}}.png"></span>
-<!--                      <i class="fa fa-angle-right customColor"></i> -->
                        {{slide.Category}}
                     </a>
                   </li>
                 </ul>
-              </div>
+              </div> -->
             </div>
           </div>
           <div  class="social-widget" >
